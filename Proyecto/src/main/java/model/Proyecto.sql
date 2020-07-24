@@ -1,5 +1,3 @@
-create database OneTechnology;
-use OneTechnology;
 
 create table tbRol(
 idRol int primary key not null,
@@ -15,7 +13,8 @@ idRol_FK int not null,
 foreign key (idRol_FK) references tbRol (idRol));
 
 create table tbSugerencia(
-idSugerencia int identity primary key,
+idSugerencia int GENERATED ALWAYS AS IDENTITY
+(START WITH 1, INCREMENT BY 1) primary key,
 asunto varchar(30) not null,
 descripcionSu varchar(100) not null,
 idUsuario_FK varchar(30),
@@ -26,20 +25,22 @@ idCategoria int primary Key not null,
 nombreCategoria varchar(20));
 
 create table tbProveedor(
-idProveedor int identity primary key ,
+idProveedor int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary key ,
 nombreProveedor varchar (20) not null,
 direccionProveedor varchar (20) not null,
 telefonoProveedor varchar(9) unique,
 correoProveedor varchar(30) unique);
 
-insert into tbProveedor values ('Intcomex','San José','2222-2222','intcomex@gmail.com');
-insert into tbProveedor values ('Tecnologia','Cartago','3333-3333','Tecnologia@gmail.com');
-insert into tbProveedor values ('Tecno','Heredia','4444-4444','Tecno@gmail.com');
+insert into tbProveedor (nombreProveedor,direccionProveedor,telefonoProveedor,correoProveedor)values ('Intcomex','San Josï¿½','2222-2222','intcomex@gmail.com');
+insert into tbProveedor (nombreProveedor,direccionProveedor,telefonoProveedor,correoProveedor)values ('Tecnologia','Cartago','3333-3333','Tecnologia@gmail.com');
+insert into tbProveedor (nombreProveedor,direccionProveedor,telefonoProveedor,correoProveedor)values ('Tecno','Heredia','4444-4444','Tecno@gmail.com');
 
 
 
 create table tbProducto(
-idProducto int identity primary Key ,
+idProducto int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary Key ,
 nombreProducto varchar(30) not null,
 descripcionProducto varchar(30) not null,
 precio int not null,
@@ -52,12 +53,14 @@ foreign key (idProveedor_FK) references tbProveedor (idProveedor),
 foreign key (idUsuario_FK) references tbUsuario (idUsuario));
 
 create table tbFavorito(
-idFavorito int identity primary Key not null,
+idFavorito int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary Key not null,
 idProducto_FK int not null,
 foreign key (idProducto_FK) references tbProducto (idProducto));
 
 create table tbCarrito(
-idCarrito int identity primary Key not null,
+idCarrito int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary Key not null,
 cantidadCarrito int not null,
 constraint cantidadCa check (cantidadCarrito<20),
 idProducto_FK int not null,
@@ -68,7 +71,8 @@ idPago int primary key not null,
 nombreFormaPago varchar(20) not null);
 
 create table tbFactura (
-idFactura int identity primary Key not null,
+idFactura int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary Key not null,
 fecha date not null,
 idCarrito_FK int  not null,
 idPago_FK int not null,
@@ -79,5 +83,5 @@ foreign key (idPago_FK) references tbFormaPago (idPago));
 insert into tbRol(idRol,descripcionRol)
 values (1,'Cliente'), (2,'Admin'),(3,'Reportes');
 
-insert into tbUsuario values('AleF','Ad123456','Alejandro Fallas','8888-8888','correo@gmail.com',2);
+insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('AleF','Ad123456','Alejandro Fallas','8888-8888','correo@gmail.com',2);
 
