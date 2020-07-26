@@ -1,3 +1,6 @@
 com\sc403\proyecto\JAXRSConfiguration.class
+controller\UsuarioController.class
+gestion\UsuarioGestion.class
 model\Conexion.class
+model\Usuario.class
 com\sc403\proyecto\resources\JavaEE8Resource.class

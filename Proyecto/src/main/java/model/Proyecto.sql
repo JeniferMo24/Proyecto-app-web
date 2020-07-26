@@ -9,7 +9,7 @@ clave varchar (8) not null,
 nombre varchar(30) not null,
 telefono varchar (9) unique,
 correo varchar(30) unique,
-idRol_FK int not null,
+idRol_FK int default 1 not null,
 foreign key (idRol_FK) references tbRol (idRol));
 
 create table tbSugerencia(
@@ -84,4 +84,6 @@ insert into tbRol(idRol,descripcionRol)
 values (1,'Cliente'), (2,'Admin'),(3,'Reportes');
 
 insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('AleF','Ad123456','Alejandro Fallas','8888-8888','correo@gmail.com',2);
+
+update tbUsuario set clave='Ad12345' where idUsuario='AleF';
 

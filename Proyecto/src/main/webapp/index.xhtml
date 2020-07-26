@@ -10,45 +10,54 @@
         <title>One Technology</title>
     </h:head>
     <h:body>
-        <h:form id="loginForm">
+       <h:form id="loginForm"> 
             <b:container fluid="true">
                 <b:panel title="Inicio Sesión" look="info">
-                    <b:row>
+                    <b:row tooltip="El usuario ya debe estar registrado">
                         <b:column medium-screen="2">
-                            <h:outputText value="Username:"  />
+                            <h:outputLabel value="Usuario" for="usuario"/>
                         </b:column>
                         <b:column medium-screen="4">
-                            <b:inputText placeholder="Username" id="username" value=""
-                                         ajax="true" autocomplete="false" update="@(.message)">
+                            <b:inputText placeholder="Usuario"
+                                         id="usuario" 
+                                         label="usuario" 
+                                         required="true"
+                                         autocomplete="false"
+                                         value="#{usuarioController.idUsuario}">
                                 <f:facet name="prepend">
-                                    <b:icon name="user" />
+                                    <b:icon name="user"/>
                                 </f:facet>
                             </b:inputText>
                         </b:column>
                         <b:column medium-screen="6" style-class="message">
-                            <b:message for="username" />
+                            <b:message for="usuario" />
                         </b:column>
                     </b:row>
-                    <b:row tooltip="This password has fancy error messages.">
+                    <b:row tooltip="Digite la clave">
                         <b:column medium-screen="2">
-                            <h:outputText value="Password:" />
+                            <h:outputLabel value="Clave" for="clave"/>
                         </b:column>
                         <b:column medium-screen="4">
-                            <b:inputSecret placeholder="Password" id="password" value=""
-                                           ajax="true" autocomplete="false" update="@(.message)">
+                            <b:inputSecret placeholder="clave"
+                                           id="clave" 
+                                           label="clave" 
+                                           required="true"
+                                           autocomplete="true"
+                                           value="#{usuarioController.clave}" >
                                 <f:facet name="prepend">
-                                    <b:iconAwesome name="key" />
+                                    <b:iconAwesome name="key"/>
                                 </f:facet>
                             </b:inputSecret>
                         </b:column>
-                        <b:column medium-screen="6" styleClass="message">
-                            <b:message for="password" />
+                        <b:column medium-screen="6" style-class="message">
+                            <b:message for="clave" />
                         </b:column>
                     </b:row>
                     <b:row>
                         <b:column span="2" offset="2">
-                            <b:commandButton value="Iniciar " onclick="ajax:loginBean.login()" update="@form" look="primary"
-                                             style="width:100%" />
+                            <b:commandButton value="Iniciar Sesión" look="primary"
+                                             style="width:100%"
+                                             action="#{usuarioController.valida()}"/>
                         </b:column>
                         <b:column span="2">
                             <b:commandButton value="Registrarse" onclick="ajax:loginBean.forgotPassword()" update="@form"
