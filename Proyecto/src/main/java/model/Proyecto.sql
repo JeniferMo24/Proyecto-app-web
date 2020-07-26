@@ -85,5 +85,5 @@ values (1,'Cliente'), (2,'Admin'),(3,'Reportes');
 
 insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('AleF','Ad123456','Alejandro Fallas','8888-8888','correo@gmail.com',2);
 
-update tbUsuario set clave='Ad12345' where idUsuario='AleF';
+update tbUsuario set clave='Ad123456' where idUsuario='AleF';
 
