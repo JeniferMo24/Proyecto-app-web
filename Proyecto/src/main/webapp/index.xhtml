@@ -10,7 +10,7 @@
         <title>One Technology</title>
     </h:head>
     <h:body>
-       <h:form id="loginForm"> 
+        <h:form id="loginForm"> 
             <b:container fluid="true">
                 <b:panel title="Inicio Sesión" look="info">
                     <b:row tooltip="El usuario ya debe estar registrado">
@@ -60,10 +60,15 @@
                                              action="#{usuarioController.valida()}"/>
                         </b:column>
                         <b:column span="2">
-                            <b:commandButton value="Registrarse" onclick="ajax:loginBean.forgotPassword()" update="@form"
-                                             look="success" style="width:100%" />
+                            <b:button
+                                value="Registrarse" 
+                                onclick="location.href='/Proyecto/faces/Registro.xhtml'"
+                                look="success" style="width:100%"/>
+
+
+
                         </b:column>
-                        
+
                     </b:row>
                 </b:panel>
             </b:container>

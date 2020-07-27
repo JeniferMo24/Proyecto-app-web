@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Registro</title>
+    </h:head>
+<h:body>
+    <h:form id="registroUsuario">
+        <b:container fluid="true">
+            <b:panel title="Registro" look="info">
+                <b:row>
+                    <b:column medium-screen="2">
+                        <h:outputLabel value="Nombre Usuario:" for="NombreUsuario"/>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputText placeholder="Nombre de Usuario"
+                                     id="NombreUsuario"
+                                     required="true"
+                                     value="#{usuarioController.idUsuario}"/>
+                    </b:column>
+                    <b:column medium-screen="6" style-class="message">
+                        <b:message for="NombreUsuario"/>
+                    </b:column>
+                </b:row>
+
+                <b:row>
+                    <b:column medium-screen="2">
+                        <h:outputLabel value="Nombre:" for="nombre"/>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputText placeholder="Nombre"
+                                     id="nombre"
+                                     required="true"
+                                     value="#{usuarioController.nombre}"/>
+                    </b:column>
+                    <b:column medium-screen="6" style-class="message">
+                        <b:message for="nombre"/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column medium-screen="2">
+                        <h:outputLabel value="Telefono:" for="telefono"/>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputText placeholder="8888-8888"
+                                     id="telefono"
+                                     mask="9999-9999"
+                                     required="true"
+                                     value="#{usuarioController.telefono}"/>
+                    </b:column>
+                    <b:column medium-screen="6" style-class="message">
+                        <b:message for="telefono"/>
+                    </b:column>
+                </b:row>
+
+                <b:row>
+                    <b:column medium-screen="2">
+                        <h:outputLabel value="Correo:" for="correo"/>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputText placeholder="ejemplo@ejemplo.com"
+                                     id="correo"
+                                     mask="email"
+                                     required="true"
+                                     value="#{usuarioController.correo}"/>
+                    </b:column>
+                    <b:column medium-screen="6" style-class="message">
+                        <b:message for="correo"/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column medium-screen="2">
+                        <h:outputLabel value="Clave:" for="clave"/>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputSecret placeholder="Clave"
+                                       id="clave"
+                                       required="true"
+                                       value="#{usuarioController.clave}"/>
+                    </b:column>
+                    <b:column medium-screen="6" style-class="message">
+                        <b:message for="clave"/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column mediumScreen="2"/>
+                    <b:column mediumScreen="1"/>
+                    <b:column medium-screen="4">
+                        <b:commandButton value="Registrar"
+                                         action="#{usuarioController.inserta()}"
+                                         look="primary"
+                                         style="width:50%" />
+                    </b:column>                                
+                </b:row>                            
+            </b:panel>
+        </b:container>                   
+    </h:form>
+</h:body>
+
+</html>
+
