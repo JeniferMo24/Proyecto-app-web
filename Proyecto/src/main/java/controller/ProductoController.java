@@ -6,7 +6,6 @@
 package controller;
 //Producto Controller
 import gestion.ProductoGestion;
-import gestion.ProveedorGestion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
