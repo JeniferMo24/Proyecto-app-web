@@ -32,7 +32,7 @@ public class ProveedorController extends Proveedor implements Serializable{
     public String inserta() {
         if (ProveedorGestion.insertar(this)) {
             return "proveedor.xhtml";  //logró insertarlo
-        } else {  //no logró insertarlo
+        } else {  //no logró insertarlo correctamente
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","No es posible agregar proveedor");
             FacesContext.getCurrentInstance().addMessage(
