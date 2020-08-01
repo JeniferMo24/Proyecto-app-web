@@ -34,23 +34,5 @@ public class UsuarioGestion {
         return usuario;
     }
     
-    private static final String SQL_INSERT_USUARIO=
-            "insert into tbUsuario values (?,?,?,?,?,?)";
-    public static boolean insertar(Usuario usuario) {        
-        try {
-            PreparedStatement sentencia =            
-                    Conexion.getConexion().prepareStatement(SQL_INSERT_USUARIO);
-            sentencia.setString(1,usuario.getIdUsuario());
-            sentencia.setString(2,usuario.getNombre());
-            sentencia.setString(3,usuario.getTelefono());
-            sentencia.setString(4,usuario.getCorreo());
-           sentencia.setInt(5,usuario.getIdRol_FK());
-            sentencia.setString(6,usuario.getClave());
-            int fila=sentencia.executeUpdate(); 
-            return fila>0;  
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;  
-    }
+    
 }

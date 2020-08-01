@@ -34,16 +34,4 @@ public class UsuarioController extends Usuario implements Serializable {
         }
 
     }
-    
-    public String inserta() {
-        if (UsuarioGestion.insertar(this)) {
-            return "index.xhtml";  
-        } else { 
-            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "Error","Es posible que el nombre de usuario esté duplicada");
-            FacesContext.getCurrentInstance().addMessage(
-                    "editaUsuarioForm:NombreUsuario", mensaje);
-            return "Registro.xhtml";
-        }
-    }
 }

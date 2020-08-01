@@ -2,28 +2,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Registro</title>
     </h:head>
 <h:body>
-    <h:form id="registroUsuario">
+    <h:form id="registroUsuarioForm">
         <b:container fluid="true">
             <b:panel title="Registro" look="info">
                 <b:row>
                     <b:column medium-screen="2">
-                        <h:outputLabel value="Nombre Usuario:" for="NombreUsuario"/>
+                        <h:outputLabel value="Nombre Usuario:" for="nombreUsuario"/>
                     </b:column>
                     <b:column medium-screen="4">
                         <b:inputText placeholder="Nombre de Usuario"
-                                     id="NombreUsuario"
+                                     id="nombreUsuario"
                                      required="true"
-                                     value="#{usuarioController.idUsuario}"/>
+                                     value="#{registroController.idUsuario}"/>
                     </b:column>
                     <b:column medium-screen="6" style-class="message">
-                        <b:message for="NombreUsuario"/>
+                        <b:message for="nombreUsuario"/>
                     </b:column>
                 </b:row>
 
@@ -35,7 +33,7 @@
                         <b:inputText placeholder="Nombre"
                                      id="nombre"
                                      required="true"
-                                     value="#{usuarioController.nombre}"/>
+                                     value="#{registroController.nombre}"/>
                     </b:column>
                     <b:column medium-screen="6" style-class="message">
                         <b:message for="nombre"/>
@@ -50,7 +48,7 @@
                                      id="telefono"
                                      mask="9999-9999"
                                      required="true"
-                                     value="#{usuarioController.telefono}"/>
+                                     value="#{registroController.telefono}"/>
                     </b:column>
                     <b:column medium-screen="6" style-class="message">
                         <b:message for="telefono"/>
@@ -66,7 +64,7 @@
                                      id="correo"
                                      mask="email"
                                      required="true"
-                                     value="#{usuarioController.correo}"/>
+                                     value="#{registroController.correo}"/>
                     </b:column>
                     <b:column medium-screen="6" style-class="message">
                         <b:message for="correo"/>
@@ -80,7 +78,7 @@
                         <b:inputSecret placeholder="Clave"
                                        id="clave"
                                        required="true"
-                                       value="#{usuarioController.clave}"/>
+                                       value="#{registroController.clave}"/>
                     </b:column>
                     <b:column medium-screen="6" style-class="message">
                         <b:message for="clave"/>
@@ -91,7 +89,7 @@
                     <b:column mediumScreen="1"/>
                     <b:column medium-screen="4">
                         <b:commandButton value="Registrar"
-                                         action="#{usuarioController.inserta()}"
+                                         action="#{registroController.inserta()}"
                                          look="primary"
                                          style="width:50%" />
                     </b:column>                                

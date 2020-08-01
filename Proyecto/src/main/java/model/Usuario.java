@@ -68,10 +68,6 @@ public class Usuario {
         this.clave = clave;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "idUsuario=" + idUsuario + ", nombre=" + nombre + ", telefono=" + telefono + ", correo=" + correo + ", idRol_FK=" + idRol_FK + ", clave=" + clave + '}';
-    }
-
+   
    
 }
