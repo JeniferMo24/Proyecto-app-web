@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package controller;
-
+//Producto Controller
 import gestion.ProductoGestion;
 import gestion.ProveedorGestion;
 import javax.inject.Named;
