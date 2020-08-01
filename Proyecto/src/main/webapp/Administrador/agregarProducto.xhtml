@@ -98,6 +98,20 @@
                                 </b:column>
                             </b:row>
                             
+                             <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Usuario" for="usuario"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText id="usuario"
+                                                  required="true"
+                                                  value="#{productoController.idUsuario_FK}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="Usuario"/>
+                                </b:column>
+                            </b:row>
+                            
                             <b:row>
                                 <b:column medium-screen="2"/>
                                 <b:column medium-screen="6">

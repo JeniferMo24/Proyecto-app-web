@@ -13,7 +13,7 @@ import model.Producto;
 public class ProductoGestion {
     
     private static final String SQL_INSERT_PRODUCTO
-            = "insert into tbProducto(nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK) values (?,?,?,?,?,?)";
+            = "insert into tbProducto(nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK) values (?,?,?,?,?,?,?)";
 
     //Retorna true si logra insertar el proveedor, false si no lo logra
     public static boolean insertar(Producto producto) {
@@ -26,6 +26,7 @@ public class ProductoGestion {
             sentencia.setInt(4, producto.getCantidad());
             sentencia.setInt(5, producto.getIdCategoria_FK());
             sentencia.setInt(6, producto.getIdProveedor_FK());
+            sentencia.setString(7, producto.getIdUsuario_FK());
             int fila = sentencia.executeUpdate(); //en fila queda el número de fila donde 
             //se insertó el estudiante....
             return fila > 0;  //retorna true si lo inserta
@@ -90,7 +91,8 @@ public class ProductoGestion {
                                 datos.getInt(3), //precio
                                 datos.getInt(4), //Cantidad
                                 datos.getInt(5), //idCategoria
-                                datos.getInt(6) //idProveedor
+                                datos.getInt(6),
+                                datos.getString(7) //idProveedor
                       
                         )
                 );
@@ -118,7 +120,8 @@ public class ProductoGestion {
                                 datos.getInt(3), //precio
                                 datos.getInt(4), //Cantidad
                                 datos.getInt(5), //idCategoria
-                                datos.getInt(6)); //idProveedor
+                                datos.getInt(6),//idProveedor
+                                datos.getString(7)); 
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);

@@ -9,8 +9,8 @@
             <ui:define name="content">
                 <h:form>
                     <b:dataTable 
-                        value="#{proveedorController.provedores}"
-                        var="proveedor"
+                        value="#{productoController.productos}"
+                        var="producto"
                         excel="true"
                         csv="true"
                         pdf="true"
@@ -23,8 +23,9 @@
                         <b:dataTableColumn value="#{producto.cantidad}"  width="20%" label="Cantidad"/>
                         <b:dataTableColumn value="#{producto.idCategoria_FK}"  width="20%" label="Categoria"/>
                         <b:dataTableColumn value="#{producto.idProveedor_FK}"  width="20%" label="Proveedor"/>
+                        <b:dataTableColumn value="#{producto.idUsuario_FK}"  width="20%" label="Usuario"/>
                         <b:dataTableColumn style="text-align: center"
-                                           width="10%" 
+                                           width="10%"
                                            label="Acción">
                             <b:commandButton value="Editar"
                                              action="#{productoController.edita(producto.nombreProducto)}" />   

@@ -52,6 +52,8 @@ foreign key (idCategoria_FK) references tbCategoria (idCategoria),
 foreign key (idProveedor_FK) references tbProveedor (idProveedor),
 foreign key (idUsuario_FK) references tbUsuario (idUsuario));
 
+insert into tbProducto (nombreProducto,descripcionProducto,precioProducto,correoProveedor)values ('Tecno','Heredia','4444-4444','Tecno@gmail.com');
+
 create table tbFavorito(
 idFavorito int GENERATED ALWAYS AS IDENTITY
         (START WITH 1, INCREMENT BY 1) primary Key not null,

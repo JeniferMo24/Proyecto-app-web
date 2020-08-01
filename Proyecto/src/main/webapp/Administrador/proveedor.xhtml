@@ -9,7 +9,7 @@
             <ui:define name="content">
                 <h:form>
                     <b:dataTable 
-                        value="#{proveedorController.provedores}"
+                        value="#{proveedorControllers.provedores}"
                         var="proveedor"
                         excel="true"
                         csv="true"
@@ -25,7 +25,7 @@
                                            width="10%" 
                                            label="Acción">
                             <b:commandButton value="Editar"
-                                             action="#{proveedorController.edita(proveedor.nombreProveedor)}" />   
+                                             action="#{proveedorControllers.edita(proveedor.nombreProveedor)}" />   
                         </b:dataTableColumn>
                     </b:dataTable>
                 </h:form>

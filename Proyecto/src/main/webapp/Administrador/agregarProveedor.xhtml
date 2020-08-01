@@ -19,7 +19,7 @@
                                     <b:inputText placeholder="Nombre"
                                                  id="nombre"
                                                  required="true"
-                                                 value="#{proveedorController.nombreProveedor}"/>
+                                                 value="#{proveedorControllers.nombreProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="nombre"/>
@@ -34,7 +34,7 @@
                                     <b:inputText placeholder="Direccion"
                                                  id="direccion"
                                                  required="true"
-                                                 value="#{proveedorController.direccionProveedor}"/>
+                                                 value="#{proveedorControllers.direccionProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="direccion"/>
@@ -49,7 +49,7 @@
                                     <b:inputText placeholder="Telefono"
                                                  id="telefono"
                                                  required="true"
-                                                 value="#{proveedorController.telefonoProveedor}"/>
+                                                 value="#{proveedorControllers.telefonoProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="telefono"/>
@@ -63,7 +63,7 @@
                                 <b:column medium-screen="4">
                                     <b:inputText id="correo"
                                                   required="true"
-                                                  value="#{proveedorController.correoProveedor}"/>
+                                                  value="#{proveedorControllers.correoProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="Correo"/>
@@ -74,15 +74,15 @@
                                 <b:column medium-screen="2"/>
                                 <b:column medium-screen="6">
                                     <b:commandButton value="Ingresar"
-                                                     action="#{proveedorController.inserta()}"
+                                                     action="#{proveedorControllers.inserta()}"
                                                      look="primary"
                                                      style="width: 33%" />
                                     <b:commandButton value="Eliminar"
-                                                     action="#{proveedorController.elimina()}"
+                                                     action="#{proveedorControllers.elimina()}"
                                                      look="danger"
                                                      style="width: 33%" />
                                     <b:commandButton value="Modificar"
-                                                     action="#{proveedorController.modifica()}"
+                                                     action="#{proveedorControllers.modifica()}"
                                                      look="success"
                                                      style="width: 33%" />
                                 </b:column>                                
