@@ -6,67 +6,56 @@ package model;
  * @author AleGamer
  */
 public class Proveedor {
-    private String id;
-    private String nombre;
-    private String direccion;
-    private String telefono;
-    private String correo;
+
+    private String nombreProveedor;
+    private String direccionProveedor;
+    private String telefonoProveedor;
+    private String correoProveedor;
 
     public Proveedor() {
     }
 
-    public Proveedor(String id, String nombre, String direccion, String telefono, String correo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correo = correo;
+    public Proveedor(String nombreProveedor, String direccionProveedor, String telefonoProveedor, String correoProveedor) {
+  
+        this.nombreProveedor = nombreProveedor;
+        this.direccionProveedor = direccionProveedor;
+        this.telefonoProveedor = telefonoProveedor;
+        this.correoProveedor = correoProveedor;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
 
     
-    
-    
-    
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
+
+    public String getDireccionProveedor() {
+        return direccionProveedor;
+    }
+
+    public void setDireccionProveedor(String direccionProveedor) {
+        this.direccionProveedor = direccionProveedor;
+    }
+
+    public String getTelefonoProveedor() {
+        return telefonoProveedor;
+    }
+
+    public void setTelefonoProveedor(String telefonoProveedor) {
+        this.telefonoProveedor = telefonoProveedor;
+    }
+
+    public String getCorreoProveedor() {
+        return correoProveedor;
+    }
+
+    public void setCorreoProveedor(String correoProveedor) {
+        this.correoProveedor = correoProveedor;
+    }
+
     
 }

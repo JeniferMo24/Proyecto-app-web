@@ -1,9 +1,12 @@
 com\sc403\proyecto\JAXRSConfiguration.class
+gestion\UsuarioGestion.class
+model\Usuario.class
+controller\ProveedorController.class
+gestion\ProveedorGestion.class
 controller\RegistroController.class
 controller\UsuarioController.class
+model\Proveedor.class
 gestion\RegistroGestion.class
-gestion\UsuarioGestion.class
 model\Conexion.class
-model\Usuario.class
 com\sc403\proyecto\resources\JavaEE8Resource.class
 model\Registro.class

@@ -9,24 +9,23 @@
             <ui:define name="content">
                 <h:form>
                     <b:dataTable 
-                        value="#{ProveedorController.provedores}"
-                        var="estudiante"
+                        value="#{proveedorController.provedores}"
+                        var="proveedor"
                         excel="true"
                         csv="true"
                         pdf="true"
                         copy="true"
                         print="true"
                         columnVisibility="true">
-                        <b:dataTableColumn value="#{proveedor.id}" width="10%" label="Id"/>
-                        <b:dataTableColumn value="#{proveedor.nombre}" width="20%" label="Nombre"/>
-                        <b:dataTableColumn value="#{proveedor.direccion}" width="20%" label="Direccion"/>
-                        <b:dataTableColumn value="#{proveedor.telefono}" width="20%" label="Telefono"/>
-                        <b:dataTableColumn value="#{proveedor.correo}"  width="20%" label="Correo"/>
+                        <b:dataTableColumn value="#{proveedor.nombreProveedor}" width="20%" label="Nombre"/>
+                        <b:dataTableColumn value="#{proveedor.direccionProveedor}" width="20%" label="Direccion"/>
+                        <b:dataTableColumn value="#{proveedor.telefonoProveedor}" width="20%" label="Telefono"/>
+                        <b:dataTableColumn value="#{proveedor.correoProveedor}"  width="20%" label="Correo"/>
                         <b:dataTableColumn style="text-align: center"
                                            width="10%" 
                                            label="Acción">
                             <b:commandButton value="Editar"
-                                             action="#{ProveedorController.modifica(proveedor.id)}" />
+                                             action="#{proveedorController.edita(proveedor.nombreProveedor)}" />   
                         </b:dataTableColumn>
                     </b:dataTable>
                 </h:form>

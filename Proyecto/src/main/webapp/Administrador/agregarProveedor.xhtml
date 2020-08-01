@@ -10,21 +10,6 @@
                 <h:form id="editaProveedorForm">
                     <b:container fluid="true">
                         <b:panel title="Proveedor" look="primary">
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="idProveedor"
-                                                   for="idProveedor"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="idProveedor"
-                                                 id="idProveedor"
-                                                 required="true"
-                                                 value="#{proveedorController.id}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="idProveedor"/>
-                                </b:column>
-                            </b:row>
 
                             <b:row>
                                 <b:column medium-screen="2">
@@ -34,7 +19,7 @@
                                     <b:inputText placeholder="Nombre"
                                                  id="nombre"
                                                  required="true"
-                                                 value="#{proveedorController.nombre}"/>
+                                                 value="#{proveedorController.nombreProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="nombre"/>
@@ -49,7 +34,7 @@
                                     <b:inputText placeholder="Direccion"
                                                  id="direccion"
                                                  required="true"
-                                                 value="#{proveedorController.direccion}"/>
+                                                 value="#{proveedorController.direccionProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="direccion"/>
@@ -64,7 +49,7 @@
                                     <b:inputText placeholder="Telefono"
                                                  id="telefono"
                                                  required="true"
-                                                 value="#{proveedorController.telefono}"/>
+                                                 value="#{proveedorController.telefonoProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="telefono"/>
@@ -78,7 +63,7 @@
                                 <b:column medium-screen="4">
                                     <b:inputText id="correo"
                                                   required="true"
-                                                  value="#{proveedorController.correo}"/>
+                                                  value="#{proveedorController.correoProveedor}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="Correo"/>
