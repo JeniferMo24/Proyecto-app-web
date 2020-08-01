@@ -1,0 +1,70 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import gestion.ProveedorGestion;
+import java.io.Serializable;
+import java.util.List;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import model.Proveedor;
+
+/**
+ *
+ * @author AleGamer
+ */
+@Named(value = "proveedorController")
+@SessionScoped
+public class ProveedorController extends Proveedor implements Serializable {
+
+    public ProveedorController() {
+        
+    }
+    
+    public String inserta() {
+        if (ProveedorGestion.insertar(this)) {
+            return "proveedor.xhtml";  //logró insertarlo
+        } else {  //no logró insertarlo
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            "Error","No es posible agregar proveedor");
+            FacesContext.getCurrentInstance().addMessage(
+                    "editaProveedorForm:id", mensaje);
+            return "agregarProveedor.xhtml";
+        }
+    }
+    
+    public String modifica() {
+        if (ProveedorGestion.modificar(this)) {
+            return "proveedor.xhtml";  //logró modificarlo
+        } else {  //no logró modificarlo
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            "Error","Es posible que el nombre no esté");
+            FacesContext.getCurrentInstance().addMessage(
+                    "editaProveedorForm:id", mensaje);
+            return "agregarProveedor.xhtml";
+        }
+    }
+    
+    public String elimina() {
+        if (ProveedorGestion.eliminar(this)) {
+            return "proveedor.xhtml";  //logró eliminarlo
+        } else {  //no logró eliminarlo
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            "Error","Es posible que el nombre no esté");
+            FacesContext.getCurrentInstance().addMessage(
+                    "editaProveedorForm:nombre", mensaje);
+            return "agregarProveedor.xhtml";
+        }
+    }
+    
+     public List<Proveedor> getProvedores() {
+        return ProveedorGestion.getProveedores();
+    }
+    
+    
+}

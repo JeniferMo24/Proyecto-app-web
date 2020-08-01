@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+   <body>
+        <ui:composition template="./../resources/plantillas/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <b:dataTable 
+                        value="#{ProveedorController.provedores}"
+                        var="estudiante"
+                        excel="true"
+                        csv="true"
+                        pdf="true"
+                        copy="true"
+                        print="true"
+                        columnVisibility="true">
+                        <b:dataTableColumn value="#{proveedor.id}" width="10%" label="Id"/>
+                        <b:dataTableColumn value="#{proveedor.nombre}" width="20%" label="Nombre"/>
+                        <b:dataTableColumn value="#{proveedor.direccion}" width="20%" label="Direccion"/>
+                        <b:dataTableColumn value="#{proveedor.telefono}" width="20%" label="Telefono"/>
+                        <b:dataTableColumn value="#{proveedor.correo}"  width="20%" label="Correo"/>
+                        <b:dataTableColumn style="text-align: center"
+                                           width="10%" 
+                                           label="Acción">
+                            <b:commandButton value="Editar"
+                                             action="#{ProveedorController.modifica(proveedor.id)}" />
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
