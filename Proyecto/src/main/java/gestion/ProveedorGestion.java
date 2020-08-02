@@ -42,11 +42,11 @@ public class ProveedorGestion {
     }
 
     private static final String SQL_UPDATE_PROVEEDOR
-            = "update tbProveedor direccionProveedor=?, telefonoProveedor=?,"
-            + "correoProveedor=?, where nombreProveedor=?";
+            = "update tbProveedor set direccionProveedor=?, telefonoProveedor=?,"
+            + "correoProveedor=? where nombreProveedor=?";
 
     //Retorna true si logra modificar el proveedor, false si no lo logra
-    public static boolean modifica(Proveedor proveedor) {
+    public static boolean modificar(Proveedor proveedor) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_UPDATE_PROVEEDOR);
             sentencia.setString(1, proveedor.getDireccionProveedor());

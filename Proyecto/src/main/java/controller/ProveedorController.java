@@ -42,13 +42,13 @@ public class ProveedorController extends Proveedor implements Serializable{
     }
     
     public String modifica() {
-        if (ProveedorGestion.modifica(this)) {
+        if (ProveedorGestion.modificar(this)) {
             return "proveedor.xhtml";  //logró modificarlo
         } else {  //no logró modificarlo
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Es posible que el nombre no esté");
             FacesContext.getCurrentInstance().addMessage(
-                    "editaProveedorForm:id", mensaje);
+                    "editaProveedorForm:nombre", mensaje);
             return "editarProveedor.xhtml";
         }
     }
