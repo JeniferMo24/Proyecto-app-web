@@ -49,7 +49,7 @@ public class ProveedorController extends Proveedor implements Serializable{
             "Error","Es posible que el nombre no esté");
             FacesContext.getCurrentInstance().addMessage(
                     "editaProveedorForm:id", mensaje);
-            return "agregarProveedor.xhtml";
+            return "editarProveedor.xhtml";
         }
     }
     
@@ -61,7 +61,7 @@ public class ProveedorController extends Proveedor implements Serializable{
             "Error","Es posible que el nombre no esté");
             FacesContext.getCurrentInstance().addMessage(
                     "editaProveedorForm:nombre", mensaje);
-            return "agregarProveedor.xhtml";
+            return "editarProveedor.xhtml";
         }
     }
     
@@ -77,7 +77,7 @@ public class ProveedorController extends Proveedor implements Serializable{
             this.setTelefonoProveedor(proveedor.getTelefonoProveedor());
             this.setCorreoProveedor(proveedor.getCorreoProveedor());
             
-            return "agregarProveedor.xhtml";
+            return "editarProveedor.xhtml";
         } else {  //El estudiante no existe...
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Es posible que el nombre no esté");

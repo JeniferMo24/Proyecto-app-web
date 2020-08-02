@@ -16,7 +16,7 @@
                                     <h:outputLabel value="Nombre" for="nombre"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText placeholder="Nombre Proveedor"
+                                    <b:inputText placeholder="Nombre de Proveedor"
                                                  id="nombre"
                                                  required="true"
                                                  value="#{proveedorControllers.nombreProveedor}"/>
@@ -46,9 +46,8 @@
                                     <h:outputLabel value="Telefono" for="telefono"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText placeholder="0000-0000"
+                                    <b:inputText placeholder="Telefono"
                                                  id="telefono"
-                                                 mask="9999-9999"
                                                  required="true"
                                                  value="#{proveedorControllers.telefonoProveedor}"/>
                                 </b:column>
@@ -62,9 +61,8 @@
                                     <h:outputLabel value="Correo" for="correo"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText placeholder="ejemplo@ejemplo.com"
+                                    <b:inputText placeholder="Correo Electronico"
                                                  id="correo"
-                                                 mask="email"
                                                  required="true"
                                                  value="#{proveedorControllers.correoProveedor}"/>
                                 </b:column>
@@ -74,14 +72,21 @@
                             </b:row>
 
                             <row>
-                                <b:column medium-screen="2"/>
-                                <b:column medium-screen="1"/>
-                                <b:column medium-screen="5">
-                                    <b:commandButton value="Insertar"
-                                                     action="#{proveedorControllers.inserta()}"
+
+                                <b:column span="2" offset="2">
+
+                                    <b:commandButton value="Modificar"
+                                                     action="#{proveedorControllers.modifica()}"
                                                      look="success"
-                                                     style="width: 33%" />
-                                </b:column>                                
+                                                     style="width:90%" />
+                                </b:column>  
+                                <b:column span="2">
+                                    <b:commandButton value="Eliminar"
+                                                     action="#{proveedorControllers.elimina()}"
+                                                     look="danger"
+                                                     style="width:90%" />
+                                </b:column>
+
                             </row>                            
                         </b:panel>
                     </b:container>                   

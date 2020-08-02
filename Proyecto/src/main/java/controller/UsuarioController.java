@@ -12,15 +12,16 @@ import model.Usuario;
 @SessionScoped
 public class UsuarioController extends Usuario implements Serializable {
 
-    
-
     public UsuarioController() {
     }
 
     public String valida() {
 
         Usuario usuario = UsuarioGestion.valida(this.getIdUsuario(), this.getClave());
+        this.setIdUsuario("");
+        this.setClave("");
         if (usuario != null) {
+
             if (usuario.getIdRol_FK() == 2) {
                 this.setNombre(usuario.getNombre());
                 this.setIdRol_FK(usuario.getIdRol_FK());

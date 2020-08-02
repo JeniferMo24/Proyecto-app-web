@@ -14,20 +14,28 @@
 
     <h:body>
 
-        <b:navBar brand="Inicio" brandHref="#" inverse="true">
+        <b:navBar brand="Inicio" brandHref="/Proyecto/faces/MenuAdmin.xhtml" inverse="true">
             <b:navbarLinks>
                 <b:dropMenu value="Productos" >
-                    <b:navLink value="Agregar Productos" href="#"></b:navLink>
+                    <b:navLink value="Agregar Productos" href=""></b:navLink>
                     <b:navLink value="Editar Productos" href="#"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Proveedores" >
-                    <b:navLink value="Agregar Proveedores" href="#"></b:navLink>
-                    <b:navLink value="Editar Proveedores" href="#"></b:navLink>
+                    <b:navLink value="Agregar Proveedores" href="/Proyecto/faces/Administrador/agregarProveedor.xhtml"></b:navLink>
+                    <b:navLink value="Ver Proveedores" href="/Proyecto/faces/Administrador/proveedor.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Reportes">
                     <b:navLink value="Reporte Ventas" href="#"></b:navLink>
                     <b:navLink></b:navLink>
                     <b:navLink header="Gráficos"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+            <b:navbarLinks pull="right">
+                <b:dropMenu value="" icon-awesome="fa-cog" >
+                    <b:navLink value="Cerrar Sesión" 
+                               icon-awesome="fa-door-open"
+                               href="/Proyecto/faces/index.xhtml"/>
+                    <b:navLink value="Perfil" icon-awesome="fa-user" href="#"/> 
                 </b:dropMenu>
             </b:navbarLinks>
         </b:navBar>

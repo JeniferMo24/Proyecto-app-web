@@ -4,30 +4,37 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:b="http://bootsfaces.net/ui">
-   <body>
+    <body>
         <ui:composition template="./../resources/plantillas/plantilla.xhtml">
             <ui:define name="content">
-                <h:form>
-                    <b:dataTable 
-                        value="#{proveedorControllers.provedores}"
-                        var="proveedor"
-                        excel="true"
-                        csv="true"
-                        pdf="true"
-                        copy="true"
-                        print="true"
-                        columnVisibility="true">
-                        <b:dataTableColumn value="#{proveedor.nombreProveedor}" width="20%" label="Nombre"/>
-                        <b:dataTableColumn value="#{proveedor.direccionProveedor}" width="20%" label="Direccion"/>
-                        <b:dataTableColumn value="#{proveedor.telefonoProveedor}" width="20%" label="Telefono"/>
-                        <b:dataTableColumn value="#{proveedor.correoProveedor}"  width="20%" label="Correo"/>
-                        <b:dataTableColumn style="text-align: center"
-                                           width="10%" 
-                                           label="Acción">
-                            <b:commandButton value="Editar"
-                                             action="#{proveedorControllers.edita(proveedor.nombreProveedor)}" />   
-                        </b:dataTableColumn>
-                    </b:dataTable>
+                <h:form >
+                    <b:container fluid="true">
+                        <b:panel title="Proveedores" look="info">
+                            <b:dataTable 
+                                value="#{proveedorControllers.provedores}"
+                                var="proveedor"
+                                excel="true"
+                                csv="true"
+                                pdf="true"
+                                copy="true"
+                                print="true"
+                                columnVisibility="true"
+                                caption="Datos de Proveedores">
+                                <b:dataTableColumn value="#{proveedor.nombreProveedor}" width="20%" label="Nombre"/>
+                                <b:dataTableColumn value="#{proveedor.direccionProveedor}" width="20%" label="Direccion"/>
+                                <b:dataTableColumn value="#{proveedor.telefonoProveedor}" width="20%" label="Telefono"/>
+                                <b:dataTableColumn value="#{proveedor.correoProveedor}"  width="20%" label="Correo"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   width="10%" 
+                                                   label="Acción">
+                                    <b:commandButton 
+                                        icon="edit"
+                                        value="Editar/Eliminar"
+                                                     action="#{proveedorControllers.edita(proveedor.nombreProveedor)}" />   
+                                </b:dataTableColumn>
+                            </b:dataTable>
+                        </b:panel>
+                    </b:container>  
                 </h:form>
             </ui:define>
         </ui:composition>
