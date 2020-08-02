@@ -37,11 +37,11 @@ public class ProductoGestion {
     }
 
     private static final String SQL_UPDATE_PRODUCTO
-            = "update tbProducto descripcionProducto=?, precio=?,"
-            + "cantidad=?,idCategoria_FK=?, idProveedor_FK=?, where nombreProducto=?";
+            = "update tbProducto set descripcionProducto=?, precio=?,"
+            + "cantidad=?,idCategoria_FK=?, idProveedor_FK=? where nombreProducto=?";
 
     //Retorna true si logra modificar el producto, false si no lo logra
-    public static boolean modifica(Producto producto) {
+    public static boolean modificar(Producto producto) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_UPDATE_PRODUCTO);
             sentencia.setString(1, producto.getDescripcionProducto());

@@ -40,14 +40,14 @@ public class ProductoController extends Producto implements Serializable {
     }
     
     public String modifica() {
-        if (ProductoGestion.modifica(this)) {
+        if (ProductoGestion.modificar(this)) {
             return "producto.xhtml";  //logró modificarlo
         } else {  //no logró modificarlo
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Es posible que el nombre no esté");
             FacesContext.getCurrentInstance().addMessage(
                     "editaProductoForm:nombre", mensaje);
-            return "agregarProducto.xhtml";
+            return "editarProducto.xhtml";
         }
     }
     
@@ -59,7 +59,7 @@ public class ProductoController extends Producto implements Serializable {
             "Error","Es posible que el nombre no esté");
             FacesContext.getCurrentInstance().addMessage(
                     "editaProductoForm:nombre", mensaje);
-            return "agregarProducto.xhtml";
+            return "editarProducto.xhtml";
         }
     }
     
@@ -77,7 +77,7 @@ public class ProductoController extends Producto implements Serializable {
             this.setIdCategoria_FK(producto.getIdCategoria_FK());
             this.setIdProveedor_FK(producto.getIdProveedor_FK());
             
-            return "agregarProducto.xhtml";
+            return "editarProducto.xhtml";
         } else {  //El estudiante no existe...
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Es posible que el nombre no esté");

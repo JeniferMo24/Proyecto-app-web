@@ -9,7 +9,7 @@
             <ui:define name="content">
                 <h:form id="editaProductoForm">
                     <b:container fluid="true">
-                        <b:panel title="Producto" look="primary">
+                        <b:panel title="Producto" look="info">
 
                             <b:row>
                                 <b:column medium-screen="2">
@@ -114,17 +114,10 @@
                             
                             <b:row>
                                 <b:column medium-screen="2"/>
-                                <b:column medium-screen="6">
-                                    <b:commandButton value="Ingresar"
+                                <b:column medium-screen="1"/>
+                                <b:column medium-screen="5">
+                                    <b:commandButton value="Insertar"
                                                      action="#{productoController.inserta()}"
-                                                     look="primary"
-                                                     style="width: 33%" />
-                                    <b:commandButton value="Eliminar"
-                                                     action="#{productoController.elimina()}"
-                                                     look="danger"
-                                                     style="width: 33%" />
-                                    <b:commandButton value="Modificar"
-                                                     action="#{productoController.modifica()}"
                                                      look="success"
                                                      style="width: 33%" />
                                 </b:column>                                
