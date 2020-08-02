@@ -40,7 +40,7 @@
                                     <b:message for="descripcion"/>
                                 </b:column>
                             </b:row>
-                            
+
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Precio" for="precio"/>
@@ -55,63 +55,68 @@
                                     <b:message for="precio"/>
                                 </b:column>
                             </b:row>
-                            
+
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Cantidad" for="cantidad"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText id="cantidad"
-                                                  required="true"
-                                                  value="#{productoController.cantidad}"/>
+                                    <b:inputText placeholder="Cantidad"
+                                                 id="cantidad"
+                                                 required="true"
+                                                 value="#{productoController.cantidad}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="Cantidad"/>
+                                    <b:message for="cantidad"/>
                                 </b:column>
                             </b:row>
-                            
-                           <b:row>
+
+                            <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Categoria" for="categoria"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText id="categoria"
-                                                  required="true"
-                                                  value="#{productoController.idCategoria_FK}"/>
+                                    <b:inputText 
+                                        placeholder="Categoria"
+                                        id="categoria"
+                                        required="true"
+                                        value="#{productoController.idCategoria_FK}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="Categoria"/>
+                                    <b:message for="categoria"/>
                                 </b:column>
                             </b:row>
-                            
-                             <b:row>
+
+                            <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Proveedor" for="proveedor"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText id="proveedor"
-                                                  required="true"
-                                                  value="#{productoController.idProveedor_FK}"/>
+                                    <b:inputText placeholder="Proveedor" 
+                                                 id="proveedor"
+                                                 required="true"
+                                                 value="#{productoController.idProveedor_FK}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="Proveedor"/>
+                                    <b:message for="proveedor"/>
                                 </b:column>
                             </b:row>
-                            
-                             <b:row>
+
+                            <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Usuario" for="usuario"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText id="usuario"
-                                                  required="true"
-                                                  value="#{productoController.idUsuario_FK}"/>
+                                    <b:inputText placeholder="Nombre de Usuario"
+                                                 id="usuario"
+                                                 required="true"
+                                                 value="#{productoController.idUsuario_FK}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="Usuario"/>
+                                    <b:message for="usuario"/>
                                 </b:column>
                             </b:row>
-                            
+
                             <b:row>
                                 <b:column medium-screen="2"/>
                                 <b:column medium-screen="1"/>
