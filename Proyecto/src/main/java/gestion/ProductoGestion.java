@@ -105,7 +105,7 @@ public class ProductoGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTOS
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto";
+            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto where nombreProducto=?";
 //Retorna un proveedor si lo encuentra... null si no lo encuentra...
 
     public static Producto getProducto(String nombreProducto) {
