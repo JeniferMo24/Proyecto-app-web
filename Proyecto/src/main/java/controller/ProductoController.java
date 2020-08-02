@@ -76,14 +76,15 @@ public class ProductoController extends Producto implements Serializable {
             this.setCantidad(producto.getCantidad());
             this.setIdCategoria_FK(producto.getIdCategoria_FK());
             this.setIdProveedor_FK(producto.getIdProveedor_FK());
+            this.setIdUsuario_FK(producto.getIdUsuario_FK());
             
-            return "editarProducto.xhtml";
+            return "producto.xhtml";
         } else {  //El estudiante no existe...
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Es posible que el nombre no esté");
             FacesContext.getCurrentInstance().addMessage(
                     "listForm:mensajes", mensaje);
-            return "producto.xhtml";
+            return "editarProducto.xhtml";
         }
     }
     

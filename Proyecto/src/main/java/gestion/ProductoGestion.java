@@ -38,7 +38,7 @@ public class ProductoGestion {
 
     private static final String SQL_UPDATE_PRODUCTO
             = "update tbProducto set descripcionProducto=?, precio=?,"
-            + "cantidad=?,idCategoria_FK=?, idProveedor_FK=? where nombreProducto=?";
+            + "cantidad=?,idCategoria_FK=?, idProveedor_FK=?, idUsuario_FK=? where nombreProducto=?";
 
     //Retorna true si logra modificar el producto, false si no lo logra
     public static boolean modificar(Producto producto) {
@@ -49,7 +49,8 @@ public class ProductoGestion {
             sentencia.setInt(3, producto.getCantidad());
             sentencia.setInt(4, producto.getIdCategoria_FK());
             sentencia.setInt(5,producto.getIdProveedor_FK());
-            sentencia.setString(6, producto.getNombreProducto());
+            sentencia.setString(6,producto.getIdUsuario_FK());
+            sentencia.setString(7, producto.getNombreProducto());
             int fila = sentencia.executeUpdate(); //Retorna la cantidad de filas modificadas
             return fila > 0;  //retorna true si lo modificó
         } catch (SQLException ex) {
@@ -76,7 +77,7 @@ public class ProductoGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTO
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK from tbProducto";
+            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto";
 
     public static ArrayList<Producto> getProductos() {
         ArrayList<Producto> lista = new ArrayList<>();
@@ -104,7 +105,7 @@ public class ProductoGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTOS
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK from tbProducto";
+            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto";
 //Retorna un proveedor si lo encuentra... null si no lo encuentra...
 
     public static Producto getProducto(String nombreProducto) {
