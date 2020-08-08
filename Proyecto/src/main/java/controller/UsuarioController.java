@@ -25,11 +25,12 @@ public class UsuarioController extends Usuario implements Serializable {
             switch (usuario.getIdRol_FK()) {
                 case 2:
                     this.setNombre(usuario.getNombre());
-                    this.setIdRol_FK(usuario.getIdRol_FK());
                     return "MenuAdmin.xhtml";
                 case 3:
+                    this.setNombre(usuario.getNombre());
                     return "MenuReportes.xhtml";
                 default:
+                    this.setNombre(usuario.getNombre());
                     return "MenuCliente.xhtml";
             }
 
