@@ -22,12 +22,15 @@ public class UsuarioController extends Usuario implements Serializable {
         this.setClave("");
         if (usuario != null) {
 
-            if (usuario.getIdRol_FK() == 2) {
-                this.setNombre(usuario.getNombre());
-                this.setIdRol_FK(usuario.getIdRol_FK());
-                return "MenuAdmin.xhtml";
-            } else {
-                return "MenuCliente.xhtml";
+            switch (usuario.getIdRol_FK()) {
+                case 2:
+                    this.setNombre(usuario.getNombre());
+                    this.setIdRol_FK(usuario.getIdRol_FK());
+                    return "MenuAdmin.xhtml";
+                case 3:
+                    return "MenuReportes.xhtml";
+                default:
+                    return "MenuCliente.xhtml";
             }
 
         } else {

@@ -52,7 +52,6 @@ foreign key (idCategoria_FK) references tbCategoria (idCategoria),
 foreign key (idProveedor_FK) references tbProveedor (idProveedor),
 foreign key (idUsuario_FK) references tbUsuario (idUsuario));
 
-insert into tbProducto (nombreProducto,descripcionProducto,precioProducto,correoProveedor)values ('Tecno','Heredia','4444-4444','Tecno@gmail.com');
 
 create table tbFavorito(
 idFavorito int GENERATED ALWAYS AS IDENTITY
@@ -88,4 +87,10 @@ values (1,'Cliente'), (2,'Admin'),(3,'Reportes');
 insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('AleF','Ad123456','Alejandro Fallas','8888-8888','correo@gmail.com',2);
 
 update tbUsuario set clave='Ad123456' where idUsuario='AleF';
+
+insert into tbCategoria (idCategoria,nombreCategoria) values (2,'Computadoras');
+insert into tbCategoria (idCategoria,nombreCategoria) values (3,'Monitores');
+
+insert into tbProducto (nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK)
+values ('Laptop HP','4 GB RAM,COREi7',380000,5,2,2,'AleF')
 
