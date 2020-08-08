@@ -17,9 +17,9 @@ import model.ProductoVenta;
 
 public class ProductoVentaGestion {
     private static final String SQL_SELECT_PRODUCTOCOMPU
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK where idCatategoria=2";
+            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=2 ";
 
-    public static ArrayList<ProductoVenta> getComputadora() {
+    public static ArrayList<ProductoVenta> getComputadoras() {
         ArrayList<ProductoVenta> listaCompu = new ArrayList<>();
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOCOMPU);

@@ -5,7 +5,7 @@
  */
 package controller;
 //Producto Controller
-import gestion.ProductoGestion;
+
 import gestion.ProductoVentaGestion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -20,7 +20,7 @@ import model.ProductoVenta;
  *
  * @author Dell
  */
-@Named(value = "productoController")
+@Named(value = "productoVentaController")
 @SessionScoped
 public class ProductoVentaController extends ProductoVenta implements Serializable {
 
@@ -34,7 +34,7 @@ public class ProductoVentaController extends ProductoVenta implements Serializab
     
  
      public List<ProductoVenta> getComputadoras() {
-        return ProductoVentaGestion.getComputadora();
+        return ProductoVentaGestion.getComputadoras();
     }
     
      
