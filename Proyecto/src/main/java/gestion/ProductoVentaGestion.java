@@ -36,7 +36,7 @@ public class ProductoVentaGestion {
                 );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductoVentaGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listaCompu;
     }

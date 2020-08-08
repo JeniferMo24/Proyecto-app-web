@@ -2,7 +2,7 @@
 package model;
 public class ProductoVenta {
     private String nombreProducto;
-    private String descripionProducto;
+    private String descripcionProducto;   
     private int precio;
     private int cantidad;
     private int idCategoria_FK;
@@ -10,9 +10,9 @@ public class ProductoVenta {
     public ProductoVenta() {
     }
 
-    public ProductoVenta(String nombreProducto, String descripionProducto, int precio, int cantidad, int idCategoria_FK) {
+    public ProductoVenta(String nombreProducto, String descripcionProducto, int precio, int cantidad, int idCategoria_FK) {
         this.nombreProducto = nombreProducto;
-        this.descripionProducto = descripionProducto;
+        this.descripcionProducto = descripcionProducto;
         this.precio = precio;
         this.cantidad = cantidad;
         this.idCategoria_FK = idCategoria_FK;
@@ -26,12 +26,12 @@ public class ProductoVenta {
         this.nombreProducto = nombreProducto;
     }
 
-    public String getDescripionProducto() {
-        return descripionProducto;
+    public String getDescripcionProducto() {
+        return descripcionProducto;
     }
 
-    public void setDescripionProducto(String descripionProducto) {
-        this.descripionProducto = descripionProducto;
+    public void setDescripcionProducto(String descripcionProducto) {
+        this.descripcionProducto = descripcionProducto;
     }
 
     public int getPrecio() {
