@@ -94,3 +94,8 @@ insert into tbCategoria (idCategoria,nombreCategoria) values (3,'Monitores');
 insert into tbProducto (nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK)
 values ('Laptop HP','4 GB RAM,COREi7',380000,5,2,2,'AleF')
 
+insert into tbProducto (nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK)
+values ('Samsung','32 Pulgadas 60Hz',110000,8,3,2,'AleF')
+
+
+
