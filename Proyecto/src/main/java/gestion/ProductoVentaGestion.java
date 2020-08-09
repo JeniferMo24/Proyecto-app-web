@@ -17,7 +17,7 @@ import model.ProductoVenta;
 public class ProductoVentaGestion {
 
     private static final String SQL_SELECT_PRODUCTOCOMPU
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=2 ";
+            = "select idProducto,nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=2 ";
 
     public static ArrayList<ProductoVenta> getComputadoras() {
         ArrayList<ProductoVenta> listaCompu = new ArrayList<>();
@@ -43,7 +43,7 @@ public class ProductoVentaGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTOPERI
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=1 ";
+            = "select idProducto,nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=1 ";
 
     public static ArrayList<ProductoVenta> getPerifericos() {
         ArrayList<ProductoVenta> listaPeri = new ArrayList<>();
@@ -69,7 +69,7 @@ public class ProductoVentaGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTOMONITOR
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=3 ";
+            = "select idProducto,nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=3 ";
 
     public static ArrayList<ProductoVenta> getMonitores() {
         ArrayList<ProductoVenta> listaMonitor = new ArrayList<>();
