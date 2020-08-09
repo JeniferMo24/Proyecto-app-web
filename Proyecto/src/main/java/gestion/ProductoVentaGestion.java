@@ -65,4 +65,30 @@ public class ProductoVentaGestion {
         }
         return listaPeri;
     }
+    
+    
+    private static final String SQL_SELECT_PRODUCTOMONITOR
+            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=3 ";
+
+    public static ArrayList<ProductoVenta> getMonitores() {
+        ArrayList<ProductoVenta> listaMonitor = new ArrayList<>();
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOMONITOR);
+            ResultSet datos = sentencia.executeQuery();
+            while (datos.next()) {
+                listaMonitor.add(
+                        new ProductoVenta(
+                            datos.getString(1),
+                            datos.getString(2),
+                            datos.getInt(3),
+                            datos.getInt(4),
+                            datos.getInt(5)
+                        )
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoVentaGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaMonitor;
+    }
 }

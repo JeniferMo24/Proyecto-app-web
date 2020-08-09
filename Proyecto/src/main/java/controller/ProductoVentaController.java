@@ -40,6 +40,10 @@ public class ProductoVentaController extends ProductoVenta implements Serializab
      public List<ProductoVenta> getPerifericos() {
         return ProductoVentaGestion.getPerifericos();
     }
+     
+      public List<ProductoVenta> getMonitores() {
+        return ProductoVentaGestion.getMonitores();
+    }
     
      
     
