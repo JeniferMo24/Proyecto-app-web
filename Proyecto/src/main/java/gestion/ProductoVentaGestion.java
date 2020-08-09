@@ -14,8 +14,8 @@ import java.util.logging.Logger;
 import model.Conexion;
 import model.ProductoVenta;
 
-
 public class ProductoVentaGestion {
+
     private static final String SQL_SELECT_PRODUCTOCOMPU
             = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=2 ";
 
@@ -27,11 +27,12 @@ public class ProductoVentaGestion {
             while (datos.next()) {
                 listaCompu.add(
                         new ProductoVenta(
-                            datos.getString(1),
-                            datos.getString(2),
-                            datos.getInt(3),
-                            datos.getInt(4),
-                            datos.getInt(5)
+                                datos.getInt(1),
+                                datos.getString(2),
+                                datos.getString(3),
+                                datos.getInt(4),
+                                datos.getInt(5),
+                                datos.getInt(6)
                         )
                 );
             }
@@ -40,8 +41,8 @@ public class ProductoVentaGestion {
         }
         return listaCompu;
     }
-    
-     private static final String SQL_SELECT_PRODUCTOPERI
+
+    private static final String SQL_SELECT_PRODUCTOPERI
             = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=1 ";
 
     public static ArrayList<ProductoVenta> getPerifericos() {
@@ -52,11 +53,12 @@ public class ProductoVentaGestion {
             while (datos.next()) {
                 listaPeri.add(
                         new ProductoVenta(
-                            datos.getString(1),
-                            datos.getString(2),
-                            datos.getInt(3),
-                            datos.getInt(4),
-                            datos.getInt(5)
+                                 datos.getInt(1),
+                                datos.getString(2),
+                                datos.getString(3),
+                                datos.getInt(4),
+                                datos.getInt(5),
+                                datos.getInt(6)
                         )
                 );
             }
@@ -65,8 +67,7 @@ public class ProductoVentaGestion {
         }
         return listaPeri;
     }
-    
-    
+
     private static final String SQL_SELECT_PRODUCTOMONITOR
             = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK from tbProducto where idCategoria_FK=3 ";
 
@@ -78,11 +79,12 @@ public class ProductoVentaGestion {
             while (datos.next()) {
                 listaMonitor.add(
                         new ProductoVenta(
-                            datos.getString(1),
-                            datos.getString(2),
-                            datos.getInt(3),
-                            datos.getInt(4),
-                            datos.getInt(5)
+                                datos.getInt(1),
+                                datos.getString(2),
+                                datos.getString(3),
+                                datos.getInt(4),
+                                datos.getInt(5),
+                                datos.getInt(6)
                         )
                 );
             }
