@@ -53,11 +53,6 @@ foreign key (idProveedor_FK) references tbProveedor (idProveedor),
 foreign key (idUsuario_FK) references tbUsuario (idUsuario));
 
 
-create table tbFavorito(
-idFavorito int GENERATED ALWAYS AS IDENTITY
-        (START WITH 1, INCREMENT BY 1) primary Key not null,
-idProducto_FK int not null,
-foreign key (idProducto_FK) references tbProducto (idProducto));
 
 create table tbCarrito(
 idCarrito int GENERATED ALWAYS AS IDENTITY
@@ -74,12 +69,18 @@ nombreFormaPago varchar(20) not null);
 create table tbFactura (
 idFactura int GENERATED ALWAYS AS IDENTITY
         (START WITH 1, INCREMENT BY 1) primary Key not null,
+totalFactura int not null,
 fecha date not null,
 idCarrito_FK int  not null,
 idPago_FK int not null,
 foreign key (idCarrito_FK) references tbCarrito (idCarrito),
 foreign key (idPago_FK) references tbFormaPago (idPago));
 
+create table tbGanancia(
+idGanacia int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary Key not null,
+total int not null,
+fecha date not null);
 
 insert into tbRol(idRol,descripcionRol)
 values (1,'Cliente'), (2,'Admin'),(3,'Reportes');
@@ -88,6 +89,7 @@ insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('A
 
 update tbUsuario set clave='Ad123456' where idUsuario='AleF';
 
+insert into tbCategoria (idCategoria,nombreCategoria) values (1,'Perifericos');
 insert into tbCategoria (idCategoria,nombreCategoria) values (2,'Computadoras');
 insert into tbCategoria (idCategoria,nombreCategoria) values (3,'Monitores');
 
