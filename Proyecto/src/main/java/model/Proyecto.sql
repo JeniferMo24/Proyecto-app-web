@@ -100,4 +100,4 @@ insert into tbProducto (nombreProducto,descripcionProducto,precio,cantidad,idCat
 values ('Samsung','32 Pulgadas 60Hz',110000,8,3,2,'AleF')
 
 
-
+insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('Andres','Andres12','Andres Arguedas','1234-1234','Andres@gmail.com',3);
