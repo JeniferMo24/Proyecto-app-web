@@ -77,7 +77,7 @@ public class ProductoGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTO
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto";
+            = "select idProducto,nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto";
 
     public static ArrayList<Producto> getProductos() {
         ArrayList<Producto> lista = new ArrayList<>();
@@ -87,13 +87,14 @@ public class ProductoGestion {
             while (datos.next()) {
                 lista.add(
                         new Producto(
-                                datos.getString(1), //nombre
-                                datos.getString(2), //Descripcion
-                                datos.getInt(3), //precio
-                                datos.getInt(4), //Cantidad
-                                datos.getInt(5), //idCategoria
-                                datos.getInt(6),
-                                datos.getString(7) //idProveedor
+                                datos.getInt(1),
+                                datos.getString(2), //nombre
+                                datos.getString(3), //Descripcion
+                                datos.getInt(4), //precio
+                                datos.getInt(5), //Cantidad
+                                datos.getInt(6), //idCategoria
+                                datos.getInt(7),
+                                datos.getString(8) //idProveedor
                       
                         )
                 );
@@ -105,7 +106,7 @@ public class ProductoGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTOS
-            = "select nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto where nombreProducto=?";
+            = "select idProducto,nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto where nombreProducto=?";
 //Retorna un proveedor si lo encuentra... null si no lo encuentra...
 
     public static Producto getProducto(String nombreProducto) {
@@ -113,16 +114,17 @@ public class ProductoGestion {
         try {
             PreparedStatement sentencia
                     = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOS);
-            sentencia.setString(1, nombreProducto);
+            sentencia.setString(2, nombreProducto);
             ResultSet datos = sentencia.executeQuery();
             if (datos.next()) {  //Si entra al if... hay un proveedor...
-                producto = new Producto(datos.getString(1), //nombre
-                                datos.getString(2), //Descripcion
-                                datos.getInt(3), //precio
-                                datos.getInt(4), //Cantidad
-                                datos.getInt(5), //idCategoria
-                                datos.getInt(6),//idProveedor
-                                datos.getString(7)); 
+                producto = new Producto(datos.getInt(1),
+                        datos.getString(2), //nombre
+                                datos.getString(3), //Descripcion
+                                datos.getInt(4), //precio
+                                datos.getInt(5), //Cantidad
+                                datos.getInt(6), //idCategoria
+                                datos.getInt(7),//idProveedor
+                                datos.getString(8)); 
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);

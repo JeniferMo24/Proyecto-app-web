@@ -3,7 +3,7 @@ package model;
 
 public class Producto {
     
-   
+    private int idProducto;
     private String nombreProducto;
     private String descripcionProducto;
     private int precio;
@@ -11,11 +11,12 @@ public class Producto {
     private int idCategoria_FK;
     private int idProveedor_FK;
     private String idUsuario_FK;
-    
+
     public Producto() {
     }
 
-    public Producto(String nombreProducto, String descripcionProducto, int precio, int cantidad, int idCategoria_FK, int idProveedor_FK, String idUsuario_FK) {
+    public Producto(int idProducto, String nombreProducto, String descripcionProducto, int precio, int cantidad, int idCategoria_FK, int idProveedor_FK, String idUsuario_FK) {
+        this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.descripcionProducto = descripcionProducto;
         this.precio = precio;
@@ -23,6 +24,14 @@ public class Producto {
         this.idCategoria_FK = idCategoria_FK;
         this.idProveedor_FK = idProveedor_FK;
         this.idUsuario_FK = idUsuario_FK;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombreProducto() {
@@ -80,6 +89,8 @@ public class Producto {
     public void setIdUsuario_FK(String idUsuario_FK) {
         this.idUsuario_FK = idUsuario_FK;
     }
+    
+    
 
     
 }

@@ -17,37 +17,40 @@ public class CarritoGestion {
     
     
     
-    private static final String SQL_SELECT_CARRITO= 
-            "select tbCarrito.cantidadcantidadCarrito,tbProducto.nombreProducto,tbProducto.precio,tbCarrito.total from tbCarrito,tbProducto where tbProducto.idProducto=tbCarrito.idProducto_FK";
-    public static ArrayList<Carrito> getCarrito() {
-        ArrayList<Carrito> lista = new ArrayList<>();        
+    private static final String SQL_INSERT_CARRITO=
+            "insert into tbCarrito values (?,?,?,?,?,?,?)";
+    //Retorna true si logra insertar el estudiante, false si no lo logra
+    public static boolean insertar(Carrito carrito) {        
         try {
-            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_CARRITO);            
-            ResultSet datos = sentencia.executeQuery();
-            while (datos.next()) {
-                lista.add(
-                        new Carrito(
-                                datos.getInt(1), 
-                                datos.getString(2), 
-                                datos.getInt(3), 
-                                datos.getInt(4))       
-                );
-            }
+            PreparedStatement sentencia =            
+                    Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITO);
+            sentencia.setInt(1,carrito.getCantidadCarrito());
+            sentencia.setString(2,carrito.getNombreProducto());
+            sentencia.setInt(3,carrito.getPrecio());
+            sentencia.setInt(4,carrito.getTotal()*carrito.getCantidadCarrito());
+            sentencia.setInt(5,carrito.getIdProducto_FK());
+            int fila=sentencia.executeUpdate(); //en fila queda el número de fila donde 
+            //se insertó el estudiante....
+            return fila>0;  //retorna true si lo inserta
         } catch (SQLException ex) {
             Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
-        }        
-        return lista;
+        }
+        return false;  //retorna falso pues debió ocurrir un error...
     }
-    private static final String SQL_INSERT_CARRITO
-            = "insert into tbCarrito(idProducto_FK) values (?) where tbProducto.idProducto=?";
+    
+    
+    
+    
+    private static final String SQL_INSERT_CARRITOS
+            = "insert into tbCarrito(idProducto_FK) values (?)";
 
     //Retorna true si logra insertar el proveedor, false si no lo logra
-    public static boolean insertar(Carrito carrito) {
+    public static boolean edita(int idProducto) {
         try {
             PreparedStatement sentencia
-                    = Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITO);
-            sentencia.setInt(1, carrito.getCantidadCarrito());
-            sentencia.setInt(3, carrito.getTotal());
+                    = Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITOS);
+            sentencia.setInt(1, idProducto);
+
             int fila = sentencia.executeUpdate(); //en fila queda el número de fila donde 
             //se insertó el estudiante....
             return fila > 0;  //retorna true si lo inserta
@@ -58,30 +61,10 @@ public class CarritoGestion {
     }
 
 
-
-    private static final String SQL_DELETE_PRODUCTO
-            = "delete from tbProducto where nombreProducto=?";
-
-    //Retorna true si logra eliminar el producto, false si no lo logra
-    public static boolean eliminar(Producto producto) {
-        try {
-            PreparedStatement sentencia
-                    = Conexion.getConexion().prepareStatement(SQL_DELETE_PRODUCTO);
-            sentencia.setString(1, producto.getNombreProducto());
-            int fila = sentencia.executeUpdate(); //Retorna la cantidad de filas eliminadas
-            return fila > 0;  //retorna true si lo modificó
-        } catch (SQLException ex) {
-            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;  //retorna falso pues debió ocurrir un error...
-    }
-
     
 
     private static final String SQL_SELECT_PRODUCTOS
             = "select nombreProducto from tbProducto where nombreProducto=?";
-
-
     public static ProductoVenta getProductoVenta(int idProducto) {
         ProductoVenta producto = null;
         try {
@@ -100,7 +83,7 @@ public class CarritoGestion {
                                     
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ProductoVentaGestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return producto;
         
