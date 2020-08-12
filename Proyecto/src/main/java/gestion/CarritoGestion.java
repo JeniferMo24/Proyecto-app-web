@@ -12,11 +12,34 @@ import model.Conexion;
 import model.Producto;
 import model.ProductoVenta;
 
+
 public class CarritoGestion {
     
     
+    
+    private static final String SQL_SELECT_CARRITO= 
+            "select tbCarrito.cantidadcantidadCarrito,tbProducto.nombreProducto,tbProducto.precio,tbCarrito.total from tbCarrito,tbProducto where tbProducto.idProducto=tbCarrito.idProducto_FK";
+    public static ArrayList<Carrito> getCarrito() {
+        ArrayList<Carrito> lista = new ArrayList<>();        
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_CARRITO);            
+            ResultSet datos = sentencia.executeQuery();
+            while (datos.next()) {
+                lista.add(
+                        new Carrito(
+                                datos.getInt(1), 
+                                datos.getString(2), 
+                                datos.getInt(3), 
+                                datos.getInt(4))       
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return lista;
+    }
     private static final String SQL_INSERT_CARRITO
-            = "insert into tbCarrito(cantidadCarrito,idProducto_FK,total) values (?,?,?)";
+            = "insert into tbCarrito(idProducto_FK) values (?) where tbProducto.idProducto=?";
 
     //Retorna true si logra insertar el proveedor, false si no lo logra
     public static boolean insertar(Carrito carrito) {
@@ -24,7 +47,6 @@ public class CarritoGestion {
             PreparedStatement sentencia
                     = Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITO);
             sentencia.setInt(1, carrito.getCantidadCarrito());
-            sentencia.setInt(2, carrito.getIdProducto_FK());
             sentencia.setInt(3, carrito.getTotal());
             int fila = sentencia.executeUpdate(); //en fila queda el número de fila donde 
             //se insertó el estudiante....

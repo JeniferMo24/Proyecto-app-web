@@ -5,15 +5,17 @@ package model;
 public class Carrito {
     
     private int cantidadCarrito;
-    private int idProducto_FK;
+    private String nombreProducto;
+    private int precio;
     private int total;
 
     public Carrito() {
     }
 
-    public Carrito(int cantidadCarrito, int idProducto_FK, int total) {
+    public Carrito(int cantidadCarrito, String nombreProducto, int precio, int total) {
         this.cantidadCarrito = cantidadCarrito;
-        this.idProducto_FK = idProducto_FK;
+        this.nombreProducto = nombreProducto;
+        this.precio = precio;
         this.total = total;
     }
 
@@ -25,12 +27,20 @@ public class Carrito {
         this.cantidadCarrito = cantidadCarrito;
     }
 
-    public int getIdProducto_FK() {
-        return idProducto_FK;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
-    public void setIdProducto_FK(int idProducto_FK) {
-        this.idProducto_FK = idProducto_FK;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public int getprecio() {
+        return precio;
+    }
+
+    public void setPrecio(int Precio) {
+        this.precio = Precio;
     }
 
     public int getTotal() {
@@ -41,6 +51,8 @@ public class Carrito {
         this.total = total;
     }
     
+    
+   
     
     
     

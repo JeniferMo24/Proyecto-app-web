@@ -11,12 +11,13 @@
                     <b:container fluid="true">
                         <b:panel title="Carrito" look="info">
                             <b:dataTable 
-                                value="#{productoVentaController.monitores}"
-                                var="productoventa"
-                                caption="Datos de Monitores">
-                                <b:dataTableColumn value="#{productoventa.nombreProducto}" width="20%" label="Nombre"/>
-                                <b:dataTableColumn value="#{productoventa.descripcionProducto}" width="20%" label="Descripcion"/>
-                                <b:dataTableColumn value="#{productoventa.precio}" width="20%" label="Precio"/>
+                                value="#{carritoController.carrito}"
+                                var="carrito"
+                                caption="Carrito">
+                                <b:dataTableColumn value="#{carrito.cantidadCarrito}" width="20%" label="Cantidad"/>
+                                <b:dataTableColumn value="#{carrito.nombreProducto}" width="20%" label="Nombre"/>
+                                <b:dataTableColumn value="#{carrito.precio}" width="20%" label="Precio"/>
+                                 <b:dataTableColumn value="#{carrito.total}" width="20%" label="Total"/>
                                 <b:dataTableColumn style="text-align: center"
                                                    width="10%"
                                                    label="Acción">

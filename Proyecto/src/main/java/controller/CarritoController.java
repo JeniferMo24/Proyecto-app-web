@@ -6,6 +6,7 @@
 package controller;
 //Producto Controller
 
+import gestion.CarritoGestion;
 import gestion.ProductoGestion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -30,6 +31,9 @@ public class CarritoController extends Carrito implements Serializable {
     public CarritoController() {
     }
 
+     public List<Carrito> getCarrito() {
+        return CarritoGestion.getCarrito();
+    }
     
     }
 
