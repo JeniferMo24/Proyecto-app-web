@@ -60,7 +60,14 @@ idCarrito int GENERATED ALWAYS AS IDENTITY
 cantidadCarrito int not null,
 constraint cantidadCa check (cantidadCarrito<20),
 idProducto_FK int not null,
+total int not null,
 foreign key (idProducto_FK) references tbProducto (idProducto));
+
+insert into tbCarrito (cantidadCarrito,idProducto_FK,total) values (1,15,0); 
+
+
+
+
 
 create table tbFormaPago(
 idPago int primary key not null,
