@@ -9,7 +9,7 @@
             <ui:define name="content">
                 <h:form id="editaEstudianteForm">
                     <b:container fluid="true">
-                        <b:panel title="AgregarCarrito" look="primary">
+                        <b:panel title="AgregarCarrito" look="info">
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Producto"
@@ -58,7 +58,7 @@
                                     <b:inputText placeholder="Cantidad"
                                                  id="cantidad"
                                                  required="true"
-                                                 value=" "/>
+                                                 value="#{carritoController.cantidadCarrito} "/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="cantidad"/>
@@ -69,7 +69,7 @@
                                 <b:column medium-screen="2"/>
                                 <b:column medium-screen="6">
                                     <b:commandButton value="Agregar"
-                                                     action="#{carritoController.insertar(productoVenta.idProducto)}"
+                                                     action="#{carritoController.insertar()}"
                                                      look="primary"
                                                      style="width: 33%" />
                                 </b:column>                                

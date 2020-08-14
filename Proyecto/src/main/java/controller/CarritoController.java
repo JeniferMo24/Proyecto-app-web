@@ -32,7 +32,7 @@ public class CarritoController extends Carrito implements Serializable {
 
   
 
-    public String insertar(int idProducto) {
+    public String insertar() {
         if (CarritoGestion.insertar(this)) {
             return "carrito.xhtml";
         } else {

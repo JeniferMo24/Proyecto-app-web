@@ -64,7 +64,7 @@ public class CarritoGestion {
     
 
     private static final String SQL_SELECT_PRODUCTOS
-            = "select nombreProducto from tbProducto where nombreProducto=?";
+            = "select * from tbProducto where idProducto=?";
     public static ProductoVenta getProductoVenta(int idProducto) {
         ProductoVenta producto = null;
         try {
