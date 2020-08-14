@@ -30,7 +30,9 @@ public class CarritoController extends Carrito implements Serializable {
     public CarritoController() {
     }
 
-  
+    public List<Carrito> getCarrito() {
+        return CarritoGestion.getCarrito();
+    }
 
     public String insertar() {
         if (CarritoGestion.insertar(this)) {
@@ -40,7 +42,7 @@ public class CarritoController extends Carrito implements Serializable {
                     "Error", "Posible producto esté duplicada");
             FacesContext.getCurrentInstance().addMessage(
                     "editaCarritoForm:producto", mensaje);
-            return "edita.xhtml";
+            return "agregarCarrito.xhtml";
         }
     }
 
