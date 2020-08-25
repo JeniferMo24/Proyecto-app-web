@@ -20,6 +20,17 @@ descripcionSu varchar(100) not null,
 idUsuario_FK varchar(30),
 foreign key (idUsuario_FK) references tbUsuario (idUsuario));
 
+create table tbCarritoProducto(
+idTransaccion int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary Key not null,
+idProducto_FK int not null,
+precio int not null,
+nombre varchar (30) not null,
+cantidad int not null,
+idUsuario varchar (30)not null,
+foreign key (idProducto_FK) references tbProducto (idProducto));
+
+
 create table tbCategoria(
 idCategoria int primary Key not null,
 nombreCategoria varchar(20));
@@ -59,11 +70,13 @@ idCarrito int GENERATED ALWAYS AS IDENTITY
         (START WITH 1, INCREMENT BY 1) primary Key not null,
 cantidadCarrito int not null,
 constraint cantidadCa check (cantidadCarrito<20),
-idProducto_FK int not null,
-total int not null,
-foreign key (idProducto_FK) references tbProducto (idProducto));
+idProducto int not null,
+precio int not null,
+cantidad int not null,
+nombre varchar (30) not null,
+idTransicion_FK int not null,
+foreign key (idTransicion_FK) references tbCarritoProducto (idTransicion));
 
-insert into tbCarrito (cantidadCarrito,idProducto_FK,total) values (1,15,0); 
 
 
 
