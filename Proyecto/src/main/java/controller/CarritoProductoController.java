@@ -6,35 +6,31 @@
 package controller;
 //Producto Controller
 
-import gestion.CarritoGestion;
+
 import gestion.CarritoProductoGestion;
-import gestion.ProductoGestion;
-import gestion.ProductoVentaGestion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import model.Carrito;
 import model.CarritoProducto;
-import model.Producto;
 import model.ProductoVenta;
 
 
-@Named(value = "carritoController")
+@Named(value = "carritoProductoController")
 @SessionScoped
-public class CarritoController extends Carrito implements Serializable {
+public class CarritoProductoController extends CarritoProducto implements Serializable {
 
-    /**
-     * Creates a new instance of ProductoController
-     */
-    public CarritoController() {
+    
+    public CarritoProductoController() {
     }
 
+    
+
     public String insertar() {
-        if (CarritoGestion.insertar(this)) {
-            return "carrito.xhtml";
+        if (CarritoProductoGestion.insertar(this)) {
+            return "mensaje.xhtml";
         } else {
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Posible producto esté duplicada");
@@ -44,15 +40,14 @@ public class CarritoController extends Carrito implements Serializable {
         }
     }
 
-    public String edita(int idProducto_FK) {
-        CarritoProducto producto = CarritoGestion.getCarritoProducto(idProducto_FK);
-        if (producto != null) {
-            this.setIdProducto(idProducto_FK);
+    public String edita(int idProducto) {
+        ProductoVenta producto = CarritoProductoGestion.getProductoVenta(idProducto);
+        if (producto != null) { 
+            this.setIdProducto_FK(idProducto);
             this.setPrecio(producto.getPrecio());
+            this.setNombre(producto.getNombreProducto());
             this.setCantidad(producto.getCantidad());
-            this.setNombre(producto.getNombre());
-            CarritoGestion.insertar(this);
-            return "carrito.xhtml";
+            return "agregarCarrito.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Es posible que la identificación no esté");

@@ -8,11 +8,13 @@ gestion\CarritoGestion.class
 controller\UsuarioController.class
 model\Proveedor.class
 gestion\SugerenciaGestion.class
+controller\CarritoProductoController.class
 controller\SugerenciaController.class
 com\sc403\proyecto\resources\JavaEE8Resource.class
 model\Registro.class
 model\Sugerencia.class
 controller\ProductoVentaController.class
+model\CarritoProducto.class
 model\Producto.class
 controller\ProveedorController.class
 gestion\ProductoVentaGestion.class
@@ -21,4 +23,5 @@ controller\RegistroController.class
 gestion\RegistroGestion.class
 model\Conexion.class
 model\ProductoVenta.class
+gestion\CarritoProductoGestion.class
 controller\ProductoController.class

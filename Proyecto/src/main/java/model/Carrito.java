@@ -4,38 +4,35 @@ package model;
 
 public class Carrito {
     
-  
-    private int cantidadCarrito;
-    private String nombreProducto;
+    private int idProducto;
+    private int cantidad;
     private int precio;
-    private int total;
-    private int idProducto_FK;
+    private String nombre;
 
     public Carrito() {
     }
 
-    public Carrito(int cantidadCarrito, String nombreProducto, int precio, int total, int idProducto_FK) {
-        this.cantidadCarrito = cantidadCarrito;
-        this.nombreProducto = nombreProducto;
+    public Carrito(int idProducto, int cantidad, int precio, String nombre) {
+        this.idProducto = idProducto;
+        this.cantidad = cantidad;
         this.precio = precio;
-        this.total = total;
-        this.idProducto_FK = idProducto_FK;
+        this.nombre = nombre;
     }
 
-    public int getCantidadCarrito() {
-        return cantidadCarrito;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setCantidadCarrito(int cantidadCarrito) {
-        this.cantidadCarrito = cantidadCarrito;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public String getNombreProducto() {
-        return nombreProducto;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public int getPrecio() {
@@ -46,21 +43,14 @@ public class Carrito {
         this.precio = precio;
     }
 
-    public int getTotal() {
-        return total;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public int getIdProducto_FK() {
-        return idProducto_FK;
-    }
-
-    public void setIdProducto_FK(int idProducto_FK) {
-        this.idProducto_FK = idProducto_FK;
-    }
-
+  
     
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Carrito;
+import model.CarritoProducto;
 import model.Conexion;
 import model.Producto;
 import model.ProductoVenta;
@@ -14,90 +15,43 @@ import model.ProductoVenta;
 public class CarritoGestion {
 
     private static final String SQL_INSERT_CARRITO
-            = "insert into tbCarrito (cantidadCarrito,idProducto_FK,total) values (?,?,?)";
+            = "insert into tbCarrito (cantidad,precio,nombre) values (?,?,?)";
+
     public static boolean insertar(Carrito carrito) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITO);
-            sentencia.setInt(1, carrito.getCantidadCarrito());
-            sentencia.setInt(2, carrito.getIdProducto_FK());
-            sentencia.setInt(3, carrito.getTotal() * carrito.getCantidadCarrito());
-            int fila = sentencia.executeUpdate(); 
-            return fila > 0;  
+            sentencia.setInt(1, carrito.getCantidad());
+            sentencia.setInt(2, carrito.getPrecio());
+            sentencia.setString(3, carrito.getNombre());
+            int fila = sentencia.executeUpdate();
+            return fila > 0;
         } catch (SQLException ex) {
             Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;  //retorna falso pues debió ocurrir un error...
-    }
-    
-    private static final String SQL_SELECT_PRODUCTOCOMPU
-            = "select cantidadCarrito,idProducto_FK,total from tbCarrito where idProducto_FK=? ";
-
-    public static ArrayList<Carrito> getCarrito() {
-        ArrayList<Carrito> listaCarrito = new ArrayList<>();
-        try {
-            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOCOMPU);
-            ResultSet datos = sentencia.executeQuery();
-            while (datos.next()) {
-                listaCarrito.add(
-                        new Carrito(
-                                datos.getInt(1),
-                                datos.getString(2),
-                                datos.getInt(2),
-                                datos.getInt(3),
-                                datos.getInt(4)
-
-                        )
-                );
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ProductoVentaGestion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return listaCarrito;
-    }
-
-    private static final String SQL_INSERT_CARRITOS
-            = "insert into tbCarrito(idProducto_FK) values (?)";
-
-    //Retorna true si logra insertar el proveedor, false si no lo logra
-    public static boolean edita(int idProducto) {
-        try {
-            PreparedStatement sentencia
-                    = Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITOS);
-            sentencia.setInt(1, idProducto);
-
-            int fila = sentencia.executeUpdate(); //en fila queda el número de fila donde 
-            //se insertó el estudiante....
-            return fila > 0;  //retorna true si lo inserta
-        } catch (SQLException ex) {
-            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;  //retorna falso pues debió ocurrir un error...
+        return false;
     }
 
     private static final String SQL_SELECT_PRODUCTOS
-            = "select * from tbProducto where idProducto=?";
+            = "select precio,nombre,cantidad from tbCarritoProducto where idProducto_FK=?";
 
-    public static ProductoVenta getProductoVenta(int idProducto) {
-        ProductoVenta producto = null;
+    public static CarritoProducto getCarritoProducto(int idProducto_FK) {
+        CarritoProducto carritoproducto = null;
         try {
             PreparedStatement sentencia
                     = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOS);
-            sentencia.setInt(1, idProducto);
+            sentencia.setInt(1, idProducto_FK);
             ResultSet datos = sentencia.executeQuery();
-            if (datos.next()) {  //Si entra al if... hay un proveedor...
-                producto = new ProductoVenta(
+            if (datos.next()) {  
+                carritoproducto = new CarritoProducto(
                         datos.getInt(1),
-                        datos.getString(2),
+                        datos.getInt(2),
                         datos.getString(3),
-                        datos.getInt(4),
-                        datos.getInt(5),
-                        datos.getInt(6));
-
+                        datos.getInt(4));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return producto;
+        return carritoproducto;
 
     }
 

@@ -17,39 +17,36 @@
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <h:outputLabel 
-                                        value="#{carritoController.idProducto_FK}"/>
+                                        value="#{carritoProductoController.idProducto_FK}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="producto"/>
                                 </b:column>
                             </b:row>
-
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Nombre" for="nombre"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <h:outputLabel 
-                                        value="#{carritoController.nombreProducto}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="nombre"/>
-                                </b:column>
-                            </b:row>
-
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Precio" for="precio"/>
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <h:outputLabel 
-                                        value="#{carritoController.precio}"/>
+                                        value="#{carritoProductoController.precio}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="precio"/>
                                 </b:column>
                             </b:row>
-                            
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Nombre" for="nombre"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <h:outputLabel 
+                                        value="#{carritoProductoController.nombre}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+                            </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Cantidad" for="cantidad"/>
@@ -58,18 +55,18 @@
                                     <b:inputText placeholder="Cantidad"
                                                  id="cantidad"
                                                  required="true"
-                                                 value="#{carritoController.cantidadCarrito}"/>
+                                                 value="#{carritoProductoController.cantidad}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="cantidad"/>
                                 </b:column>
                             </b:row>
-                            
+
                             <b:row>
                                 <b:column medium-screen="2"/>
                                 <b:column medium-screen="6">
                                     <b:commandButton value="Agregar"
-                                                     action="#{carritoController.insertar()}"
+                                                     action="#{carritoProductoController.insertar()}"
                                                      look="primary"
                                                      style="width: 33%" />
                                 </b:column>                                
