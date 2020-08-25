@@ -52,7 +52,7 @@ public class CarritoController extends Carrito implements Serializable {
             this.setCantidad(producto.getCantidad());
             this.setNombre(producto.getNombre());
             CarritoGestion.insertar(this);
-            return "carrito.xhtml";
+            return "carrito.xhtml";// AQUI
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Es posible que la identificación no esté");
