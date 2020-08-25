@@ -6,13 +6,12 @@
 package dashboard;
 
 import gestion.GananciaGestion;
-import gestion.ProductoGestion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
-import model.VentaDiaria;
+import model.GananciaFecha;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.DateAxis;
 import org.primefaces.model.chart.LineChartModel;
@@ -38,11 +37,11 @@ public class ChartDateView implements Serializable {
     private void createDateModel() {
         dateModel = new LineChartModel();
         LineChartSeries Fechas = new LineChartSeries();
-        Fechas.setLabel("Fecha Ingreso");
+        Fechas.setLabel("Fecha");
        
-         ArrayList<VentaDiaria> datos = GananciaGestion.getIngresos();
+         ArrayList<GananciaFecha> datos = GananciaGestion.getIngresos();
          
-         for(VentaDiaria dato:datos){
+         for(GananciaFecha dato:datos){
              Fechas.set(dato.getFecha(),dato.getTotal());
 
          }

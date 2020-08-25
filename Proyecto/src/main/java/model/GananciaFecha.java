@@ -4,17 +4,17 @@ package model;
 import java.util.Date;
 
 
-public class VentaDiaria {
+public class GananciaFecha {
     
     private int total;
     private Date fecha;
 
-    public VentaDiaria(int total, Date fecha) {
+    public GananciaFecha(int total, Date fecha) {
         this.total = total;
         this.fecha = fecha;
     }
 
-    public VentaDiaria() {
+    public GananciaFecha() {
     }
     
 

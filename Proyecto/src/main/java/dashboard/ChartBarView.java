@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import model.VentaDiaria;
+import model.GananciaFecha;
 import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
@@ -52,9 +52,9 @@ public class ChartBarView implements Serializable {
         fechas.setLabel("Ingresos");
         
 
-        ArrayList<VentaDiaria> datos = GananciaGestion.getIngresos();
+        ArrayList<GananciaFecha> datos = GananciaGestion.getIngresos();
         
-        for(VentaDiaria dato:datos){
+        for(GananciaFecha dato:datos){
             
             fechas.set(dato.getFecha(), dato.getTotal());
         }
