@@ -20,16 +20,6 @@ descripcionSu varchar(100) not null,
 idUsuario_FK varchar(30),
 foreign key (idUsuario_FK) references tbUsuario (idUsuario));
 
-create table tbCarritoProducto(
-idTransaccion int GENERATED ALWAYS AS IDENTITY
-        (START WITH 1, INCREMENT BY 1) primary Key not null,
-idProducto_FK int not null,
-precio int not null,
-nombre varchar (30) not null,
-cantidad int not null,
-idUsuario varchar (30)not null,
-foreign key (idProducto_FK) references tbProducto (idProducto));
-
 
 create table tbCategoria(
 idCategoria int primary Key not null,
@@ -47,8 +37,6 @@ insert into tbProveedor (nombreProveedor,direccionProveedor,telefonoProveedor,co
 insert into tbProveedor (nombreProveedor,direccionProveedor,telefonoProveedor,correoProveedor)values ('Tecnologia','Cartago','3333-3333','Tecnologia@gmail.com');
 insert into tbProveedor (nombreProveedor,direccionProveedor,telefonoProveedor,correoProveedor)values ('Tecno','Heredia','4444-4444','Tecno@gmail.com');
 
-
-
 create table tbProducto(
 idProducto int GENERATED ALWAYS AS IDENTITY
         (START WITH 1, INCREMENT BY 1) primary Key ,
@@ -63,7 +51,15 @@ foreign key (idCategoria_FK) references tbCategoria (idCategoria),
 foreign key (idProveedor_FK) references tbProveedor (idProveedor),
 foreign key (idUsuario_FK) references tbUsuario (idUsuario));
 
-
+create table tbCarritoProducto(
+idTransaccion int GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1) primary Key not null,
+idProducto_FK int not null,
+precio int not null,
+nombre varchar (30) not null,
+cantidad int not null,
+idUsuario varchar (30)not null,
+foreign key (idProducto_FK) references tbProducto (idProducto));
 
 create table tbCarrito(
 idCarrito int GENERATED ALWAYS AS IDENTITY
@@ -74,12 +70,8 @@ idProducto int not null,
 precio int not null,
 cantidad int not null,
 nombre varchar (30) not null,
-idTransicion_FK int not null,
-foreign key (idTransicion_FK) references tbCarritoProducto (idTransicion));
-
-
-
-
+idTransaccion_FK int not null,
+foreign key (idTransaccion_FK) references tbCarritoProducto (idTransaccion));
 
 
 create table tbFormaPago(
@@ -102,22 +94,25 @@ idGanacia int GENERATED ALWAYS AS IDENTITY
 total int not null,
 fecha date not null);
 
-insert into tbRol(idRol,descripcionRol)
-values (1,'Cliente'), (2,'Admin'),(3,'Reportes');
+insert into tbRol(idRol,descripcionRol) values (1,'Cliente'); 
+insert into tbRol(idRol,descripcionRol) values (2,'Admin');
+insert into tbRol(idRol,descripcionRol) values (3,'Reportes');
 
 insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('AleF','Ad123456','Alejandro Fallas','8888-8888','correo@gmail.com',2);
 
-update tbUsuario set clave='Ad123456' where idUsuario='AleF';
 
 insert into tbCategoria (idCategoria,nombreCategoria) values (1,'Perifericos');
 insert into tbCategoria (idCategoria,nombreCategoria) values (2,'Computadoras');
 insert into tbCategoria (idCategoria,nombreCategoria) values (3,'Monitores');
 
 insert into tbProducto (nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK)
-values ('Laptop HP','4 GB RAM,COREi7',380000,5,2,2,'AleF')
+values ('Laptop HP','4 GB RAM,COREi7',380000,5,2,2,'AleF');
 
 insert into tbProducto (nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK)
-values ('Samsung','32 Pulgadas 60Hz',110000,8,3,2,'AleF')
+values ('Samsung','32 Pulgadas 60Hz',110000,8,3,2,'AleF');
 
 
 insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('Andres','Andres12','Andres Arguedas','1234-1234','Andres@gmail.com',3);
+
+update tbUsuario set clave='Ad123456' where idUsuario='AleF';
+update tbUsuario set clave='Andres12' where idUsuario='Andres';

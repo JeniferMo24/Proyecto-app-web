@@ -25,7 +25,7 @@ import java.util.logging.Logger;
     private Conexion() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver").getDeclaredConstructor().newInstance();
-            conn=DriverManager.getConnection(DBURL,"administrador","Ad123456");
+            conn=DriverManager.getConnection(DBURL,"Administrador","Ad123456");
         } catch (ClassNotFoundException | NoSuchMethodException | 
                 SecurityException | InstantiationException | 
                 IllegalAccessException | IllegalArgumentException | 
