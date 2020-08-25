@@ -113,6 +113,7 @@ values ('Samsung','32 Pulgadas 60Hz',110000,8,3,2,'AleF');
 
 
 insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('Andres','Andres12','Andres Arguedas','1234-1234','Andres@gmail.com',3);
+insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('Maria','Naria123','Maria Badilla','5555-5555','maria@gmail.com',1);
 
 update tbUsuario set clave='Ad123456' where idUsuario='AleF';
 update tbUsuario set clave='Andres12' where idUsuario='Andres';
