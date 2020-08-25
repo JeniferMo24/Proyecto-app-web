@@ -1,4 +1,5 @@
 com\sc403\proyecto\JAXRSConfiguration.class
+dashboard\ChartBarView.class
 gestion\UsuarioGestion.class
 model\Usuario.class
 model\Carrito.class
@@ -9,10 +10,12 @@ controller\UsuarioController.class
 model\Proveedor.class
 gestion\SugerenciaGestion.class
 controller\CarritoProductoController.class
+gestion\GananciaGestion.class
 controller\SugerenciaController.class
 com\sc403\proyecto\resources\JavaEE8Resource.class
 model\Registro.class
 model\Sugerencia.class
+model\VentaDiaria.class
 controller\ProductoVentaController.class
 model\CarritoProducto.class
 model\Producto.class
@@ -21,6 +24,7 @@ gestion\ProductoVentaGestion.class
 controller\CarritoController.class
 controller\RegistroController.class
 gestion\RegistroGestion.class
+dashboard\ChartDateView.class
 model\Conexion.class
 model\ProductoVenta.class
 gestion\CarritoProductoGestion.class
