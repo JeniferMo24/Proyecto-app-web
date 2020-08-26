@@ -18,14 +18,14 @@ public class UsuarioGestion {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_USUARIO);
             sentencia.setString(1, idUsuario);
             ResultSet rs = sentencia.executeQuery();
-            if (rs != null && rs.next() && rs.getString(6).equals(clave)) {
+            if (rs != null && rs.next() && rs.getString(2).equals(clave)) {
                 usuario = new Usuario(
                         idUsuario,
-                        rs.getString(2),
+                        clave,
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getInt(5),
-                        clave);
+                        rs.getString(5),
+                        rs.getInt(6));
 
             }
         } catch (SQLException ex) {

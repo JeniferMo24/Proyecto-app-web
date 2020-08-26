@@ -19,13 +19,13 @@ import java.util.logging.Logger;
 
     public class Conexion {
     private static Conexion conexion;
-    private static final String DBURL="jdbc:derby://localhost:1527/OneTechnology";
-    private static Connection conn;
+    private static final String DBURL="jdbc:sqlserver://127.0.0.1:1433;databaseName=Proyecto;user=Jenifer;password=jeni123;";
+    private static Connection conn=null;
 
     private Conexion() {
         try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver").getDeclaredConstructor().newInstance();
-            conn=DriverManager.getConnection(DBURL,"Administrador","Ad123456");
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
+            conn=DriverManager.getConnection(DBURL);
         } catch (ClassNotFoundException | NoSuchMethodException | 
                 SecurityException | InstantiationException | 
                 IllegalAccessException | IllegalArgumentException | 

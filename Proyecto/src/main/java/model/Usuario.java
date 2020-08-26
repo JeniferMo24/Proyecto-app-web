@@ -2,22 +2,23 @@
 package model;
 public class Usuario {
    private String idUsuario;
+   private String clave;
    private String nombre;
    private String telefono;
    private String correo;
    private int idRol_FK;
-   private String clave;
+   
 
     public Usuario() {
     }
 
-    public Usuario(String idUsuario, String nombre, String telefono, String correo, int idRol_FK, String clave) {
+    public Usuario(String idUsuario, String clave, String nombre, String telefono, String correo, int idRol_FK) {
         this.idUsuario = idUsuario;
+        this.clave = clave;
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
         this.idRol_FK = idRol_FK;
-        this.clave = clave;
     }
 
     public String getIdUsuario() {
@@ -26,6 +27,14 @@ public class Usuario {
 
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public String getNombre() {
@@ -60,13 +69,7 @@ public class Usuario {
         this.idRol_FK = idRol_FK;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
+   
 
    
    
