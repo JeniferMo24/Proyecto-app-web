@@ -13,7 +13,7 @@ import model.Producto;
 
 
 public class CarritoGestion {
-    public static int total1=0;
+    public static int total1;
     
     private static final String SQL_SELECT_CARRITO
             = "select cantidadCarrito,precio,nombre,total from tbCarrito";
@@ -23,6 +23,7 @@ public class CarritoGestion {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_CARRITO);
             ResultSet datos = sentencia.executeQuery();
+            total1=0;
             while (datos.next()) {
                 listaCarrito.add(
                         new Carrito(
@@ -34,7 +35,7 @@ public class CarritoGestion {
                         )      
                 );
                 
-                total1=datos.getInt(2)+total1;
+                total1=(datos.getInt(2)*datos.getInt(1))+total1;
             }
             
         } catch (SQLException ex) {

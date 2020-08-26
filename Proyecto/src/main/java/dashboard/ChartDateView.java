@@ -40,10 +40,10 @@ public class ChartDateView implements Serializable {
         Fechas.setLabel("Fecha");
        
          ArrayList<GananciaFecha> datos = GananciaGestion.getIngresos();
-         
+         int maximo=datos.get(0).getTotal();
          for(GananciaFecha dato:datos){
              Fechas.set(dato.getFecha(),dato.getTotal());
-
+             maximo=maximo<dato.getTotal()?dato.getTotal():maximo;
          }
                
  
@@ -54,7 +54,7 @@ public class ChartDateView implements Serializable {
         dateModel.getAxis(AxisType.Y).setLabel("Total");
         DateAxis axis = new DateAxis("Fechas");
         axis.setTickAngle(-50);
-        axis.setMax(100000);
+        axis.setMax(maximo*1.25);
         axis.setTickFormat("%b %#d, %y");
  
         dateModel.getAxes().put(AxisType.X, axis);

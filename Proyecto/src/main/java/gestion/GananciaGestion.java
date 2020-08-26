@@ -22,8 +22,8 @@ public class GananciaGestion {
             ResultSet rs = sentencia.executeQuery();
             while (rs.next()) {
                 datos.add(new GananciaFecha(                                
-                                rs.getInt(1), //Total 
-                                rs.getDate(2) //Fecha
+                                rs.getInt(2), //Total 
+                                rs.getDate(1) //Fecha
                         )
                 );
             }
