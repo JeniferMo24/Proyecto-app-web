@@ -21,19 +21,34 @@ import model.CarritoProducto;
 import model.Producto;
 import model.ProductoVenta;
 
-
 @Named(value = "carritoController")
 @SessionScoped
 public class CarritoController extends Carrito implements Serializable {
 
- 
     public CarritoController() {
     }
-    
-    
-    public String paginaCarrito(){
+
+    public String paginaCarrito() {
         return "carrito.xhtml";
     }
-    
 
+    public List<Carrito> getCarrito() {
+        return CarritoGestion.getCarrito();
+    }
+
+    public String elimina() {
+        if (CarritoGestion.eliminar(this)) {
+            return "carrito.xhtml";  
+        } else {  
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Error", "No es posible eliminar");
+            FacesContext.getCurrentInstance().addMessage(
+                    "CarritoForm:nombre", mensaje);
+            return "carrito.xhtml";
+        }
+    }
+    
+    public int calcularTotal(){
+       return CarritoGestion.total1;
+    }
 }

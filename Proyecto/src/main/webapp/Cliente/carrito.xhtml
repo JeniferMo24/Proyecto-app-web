@@ -7,7 +7,7 @@
     <body>
         <ui:composition template="./../resources/plantillas/plantillaCliente.xhtml">
             <ui:define name="content">
-               <h:form>
+                <h:form>
                     <b:container fluid="true">
                         <b:panel title="Carrito" look="info">
                             <b:dataTable 
@@ -15,18 +15,33 @@
                                 var="carrito"
                                 caption="Carrito">
                                 <b:dataTableColumn value="#{carrito.cantidadCarrito}" width="20%" label="Cantidad"/>
-                                <b:dataTableColumn value="#{carrito.nombreProducto}" width="20%" label="Nombre"/>
                                 <b:dataTableColumn value="#{carrito.precio}" width="20%" label="Precio"/>
-                                 <b:dataTableColumn value="#{carrito.total}" width="20%" label="Total"/>
-                                <b:dataTableColumn style="text-align: center"
-                                                   width="10%"
-                                                   label="Acción">
-                                    <b:commandButton 
-                                                     value="Facturar"
-                                                     action="#{carritoController.insertar()}" />   
-                                </b:dataTableColumn>
+                                <b:dataTableColumn value="#{carrito.nombre}" width="20%" label="nombre"/>
+
                             </b:dataTable>
-                        </b:panel>
+                            <b:row>
+                                <b:column medium-screen="3"/>
+                                <b:column medium-screen="3">
+                                    <h:outputLabel value="#{carritoController.calcularTotal()}"/>
+                                </b:column>
+                                          
+                            </b:row>
+                            <row>
+                                <b:column medium-screen="2"/>
+                                <b:column span="2" offset="2">
+                                    <b:commandButton value="Facturar"
+                                                     action="#"
+                                                     look="success"
+                                                     style="width:90%" />
+                                </b:column>  
+                                <b:column span="2">
+                                    <b:commandButton value="Eliminar Carrito"
+                                                     action="#{carritoController.elimina()}"
+                                                     look="danger"
+                                                     style="width:90%" />
+                                </b:column>
+
+                            </row>                                  </b:panel>
                     </b:container>
                 </h:form>
             </ui:define>

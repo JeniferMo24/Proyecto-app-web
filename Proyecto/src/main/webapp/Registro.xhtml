@@ -26,6 +26,20 @@
                             <b:message for="nombreUsuario"/>
                         </b:column>
                     </b:row>
+                     <b:row tooltip="La clave permite un máximo de 8 caracteres">
+                        <b:column medium-screen="2">
+                            <h:outputLabel value="Clave:" for="clave"/>
+                        </b:column>
+                        <b:column medium-screen="4">
+                            <b:inputSecret placeholder="Clave"
+                                           id="clave"
+                                           required="true"
+                                           value="#{registroController.clave}"/>
+                        </b:column>
+                        <b:column medium-screen="6" style-class="message">
+                            <b:message for="clave"/>
+                        </b:column>
+                    </b:row>
 
                     <b:row>
                         <b:column medium-screen="2">
@@ -72,20 +86,7 @@
                             <b:message for="correo"/>
                         </b:column>
                     </b:row>
-                    <b:row tooltip="La clave permite un máximo de 8 caracteres">
-                        <b:column medium-screen="2">
-                            <h:outputLabel value="Clave:" for="clave"/>
-                        </b:column>
-                        <b:column medium-screen="4">
-                            <b:inputSecret placeholder="Clave"
-                                           id="clave"
-                                           required="true"
-                                           value="#{registroController.clave}"/>
-                        </b:column>
-                        <b:column medium-screen="6" style-class="message">
-                            <b:message for="clave"/>
-                        </b:column>
-                    </b:row>
+                   
                     <b:row>
                        <b:column mediumScreen="2"/>
                         <b:column medium-screen="3">

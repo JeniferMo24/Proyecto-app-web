@@ -7,53 +7,54 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Carrito;
-import model.CarritoProducto;
 import model.Conexion;
 import model.Producto;
-import model.ProductoVenta;
+
+
 
 public class CarritoGestion {
+    public static int total1=0;
+    
+    private static final String SQL_SELECT_CARRITO
+            = "select cantidadCarrito,precio,nombre,total from tbCarrito";
 
-    private static final String SQL_INSERT_CARRITO
-            = "insert into tbCarrito (idProducto,cantidad,precio,nombre) values (?,?,?,?)";
-
-    public static boolean insertar(Carrito carrito) {
+    public static ArrayList<Carrito> getCarrito() {
+        ArrayList<Carrito>listaCarrito = new ArrayList<>();
         try {
-            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITO);
-            sentencia.setInt(1, carrito.getIdProducto());
-            sentencia.setInt(2, carrito.getCantidad());
-            sentencia.setInt(3, carrito.getPrecio());
-            sentencia.setString(4, carrito.getNombre());
-            int fila = sentencia.executeUpdate();
-            return fila > 0;
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_CARRITO);
+            ResultSet datos = sentencia.executeQuery();
+            while (datos.next()) {
+                listaCarrito.add(
+                        new Carrito(
+                                datos.getInt(1),
+                                datos.getInt(2),
+                                datos.getString(3),
+                                datos.getInt(4)
+                                
+                        )      
+                );
+                
+                total1=datos.getInt(2)+total1;
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        return listaCarrito;
     }
-
-    private static final String SQL_SELECT_PRODUCTOS
-            = "select precio,nombre,cantidad from tbCarritoProducto where idProducto_FK=?";
-
-    public static CarritoProducto getCarritoProducto(int idProducto_FK) {
-        CarritoProducto carritoproducto = null;
+    
+     private static final String SQL_DELETE_CARRITO
+            = "delete tbCarrito";
+     
+    public static boolean eliminar(Carrito carrito) {
         try {
             PreparedStatement sentencia
-                    = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOS);
-            sentencia.setInt(1, idProducto_FK);
-            ResultSet datos = sentencia.executeQuery();
-            if (datos.next()) {  
-                carritoproducto = new CarritoProducto(
-                        datos.getInt(1),
-                        datos.getInt(2),
-                        datos.getString(3),
-                        datos.getInt(4));
-            }
+                    = Conexion.getConexion().prepareStatement(SQL_DELETE_CARRITO);
+            int fila = sentencia.executeUpdate(); //Retorna la cantidad de filas eliminadas
+            return fila > 0;  //retorna true si lo modificó
         } catch (SQLException ex) {
-            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return carritoproducto;
-
+        return false;  //retorna falso pues debió ocurrir un error...
     }
-
 }

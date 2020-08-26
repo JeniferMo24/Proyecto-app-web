@@ -4,20 +4,23 @@ package model;
 
 public class Registro {
     private String idUsuario;
+    private String clave;
     private String nombre;
     private String telefono;
     private String correo;
-    private String clave;
+    private int idRol_FK=1;
+   
 
     public Registro() {
     }
 
-    public Registro(String idUsuario, String nombre, String telefono, String correo, String clave) {
+    public Registro(String idUsuario, String clave, String nombre, String telefono, String correo, int idRol_FK) {
         this.idUsuario = idUsuario;
+        this.clave = clave;
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
-        this.clave = clave;
+        this.idRol_FK = idRol_FK;
     }
 
     public String getIdUsuario() {
@@ -26,6 +29,14 @@ public class Registro {
 
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public String getNombre() {
@@ -52,19 +63,20 @@ public class Registro {
         this.correo = correo;
     }
 
-   
-    public String getClave() {
-        return clave;
+    public int getIdRol_FK() {
+        return idRol_FK;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setIdRol_FK(int idRol_FK) {
+        this.idRol_FK = idRol_FK;
     }
 
     @Override
     public String toString() {
-        return "Registro{" + "idUsuario=" + idUsuario + ", nombre=" + nombre + ", telefono=" + telefono + ", correo=" + correo + ", clave=" + clave + '}';
+        return "Registro{" + "idUsuario=" + idUsuario + ", clave=" + clave + ", nombre=" + nombre + ", telefono=" + telefono + ", correo=" + correo + ", idRol_FK=" + idRol_FK + '}';
     }
 
+   
+    
     
 }
