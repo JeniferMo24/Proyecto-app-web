@@ -117,3 +117,8 @@ insert into tbUsuario(idUsuario,clave,nombre,telefono,correo,idRol_FK) values('M
 
 update tbUsuario set clave='Ad123456' where idUsuario='AleF';
 update tbUsuario set clave='Andres12' where idUsuario='Andres';
+
+create trigger llenarTabla
+on tbFactura
+for insert
+insert into tbGanancia(total,fecha) select totalFactura,fecha from tbFactura;

@@ -15,14 +15,15 @@ import model.ProductoVenta;
 public class CarritoGestion {
 
     private static final String SQL_INSERT_CARRITO
-            = "insert into tbCarrito (cantidad,precio,nombre) values (?,?,?)";
+            = "insert into tbCarrito (idProducto,cantidad,precio,nombre) values (?,?,?,?)";
 
     public static boolean insertar(Carrito carrito) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_INSERT_CARRITO);
-            sentencia.setInt(1, carrito.getCantidad());
-            sentencia.setInt(2, carrito.getPrecio());
-            sentencia.setString(3, carrito.getNombre());
+            sentencia.setInt(1, carrito.getIdProducto());
+            sentencia.setInt(2, carrito.getCantidad());
+            sentencia.setInt(3, carrito.getPrecio());
+            sentencia.setString(4, carrito.getNombre());
             int fila = sentencia.executeUpdate();
             return fila > 0;
         } catch (SQLException ex) {
