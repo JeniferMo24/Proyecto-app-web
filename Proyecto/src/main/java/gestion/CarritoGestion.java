@@ -10,15 +10,18 @@ import java.util.logging.Logger;
 import model.Carrito;
 import model.Conexion;
 import model.Facturar;
-import model.Producto;
+
 
 public class CarritoGestion {
 
     public static int total1;
-    public static String fecha1 = "2020-08-26";
+    public static int num=50+1;
+   
+  
+   
 
     private static final String SQL_SELECT_CARRITO
-            = "select cantidadCarrito,precio,nombre,total from tbCarrito";
+            = "select cantidadCarrito,precio,nombre from tbCarrito";
 
     public static ArrayList<Carrito> getCarrito() {
         ArrayList<Carrito> listaCarrito = new ArrayList<>();
@@ -31,8 +34,7 @@ public class CarritoGestion {
                         new Carrito(
                                 datos.getInt(1),
                                 datos.getInt(2),
-                                datos.getString(3),
-                                datos.getInt(4)
+                                datos.getString(3)
                         )
                 );
                 
@@ -62,7 +64,7 @@ public class CarritoGestion {
     }
 
     private static final String SQL_INSERT_FACTURA
-            = "insert into tbfactura(totalFactura,fecha,idCarrito_FK,idPago_FK) values (?,?,?,?)";
+            = "insert into tbfactura(totalFactura,fecha,idPago_FK) values (?,?,?)";
 
     public static boolean insertar(Facturar facturar) {
         
@@ -71,8 +73,7 @@ public class CarritoGestion {
             PreparedStatement sentencia= Conexion.getConexion().prepareStatement(SQL_INSERT_FACTURA);
             sentencia.setInt(1,total1);
             sentencia.setObject(2, new Date());
-            sentencia.setInt(3, 46);
-            sentencia.setInt(4, facturar.getIdPago_FK() );
+            sentencia.setInt(3, facturar.getIdPago_FK() );
             int fila = sentencia.executeUpdate();
             return fila > 0;  
         } catch (SQLException ex) {
