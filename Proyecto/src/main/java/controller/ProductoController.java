@@ -67,9 +67,9 @@ public class ProductoController extends Producto implements Serializable {
         return ProductoGestion.getProductos();
     }
     
-     public String edita(String nombreProducto) {
-        Producto producto=ProductoGestion.getProducto(nombreProducto);
-        if (producto!=null) {  //Si el estudiante existe lo puedo editar
+     public String edita(int idProducto) {
+        Producto producto=ProductoGestion.getProducto(idProducto);
+        if (producto!=null) { 
             this.setNombreProducto(producto.getNombreProducto());
             this.setDescripcionProducto(producto.getDescripcionProducto());
             this.setPrecio(producto.getPrecio());

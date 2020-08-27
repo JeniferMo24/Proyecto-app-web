@@ -106,15 +106,15 @@ public class ProductoGestion {
     }
 
     private static final String SQL_SELECT_PRODUCTOS
-            = "select idProducto,nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto where nombreProducto=?";
-//Retorna un proveedor si lo encuentra... null si no lo encuentra...
+            = "select idProducto,nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK from tbProducto where idProducto=?";
 
-    public static Producto getProducto(String nombreProducto) {
+
+    public static Producto getProducto(int idProducto) {
         Producto producto = null;
         try {
             PreparedStatement sentencia
                     = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOS);
-            sentencia.setString(2, nombreProducto);
+            sentencia.setInt(1, idProducto);
             ResultSet datos = sentencia.executeQuery();
             if (datos.next()) {  //Si entra al if... hay un proveedor...
                 producto = new Producto(datos.getInt(1),
