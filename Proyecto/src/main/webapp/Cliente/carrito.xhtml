@@ -13,6 +13,7 @@
                             <b:dataTable 
                                 value="#{carritoController.carrito}"
                                 var="carrito"
+                                pdf="true"
                                 caption="Carrito">
                                 <b:dataTableColumn value="#{carrito.cantidadCarrito}" width="20%" label="Cantidad"/>
                                 <b:dataTableColumn value="#{carrito.precio}" width="20%" label="Precio"/>
@@ -20,17 +21,44 @@
 
                             </b:dataTable>
                             <b:row>
-                                <b:column medium-screen="3"/>
+                              
                                 <b:column medium-screen="3">
-                                    <h:outputLabel value="#{carritoController.calcularTotal()}"/>
+                                    <h:outputLabel style="font-size: 30px"  value="Total a Pagar: "
+                                                   for="Total"/>
                                 </b:column>
-                                          
+                                <b:column >
+                                    <h:outputLabel style="font-size: 30px " value="#{carritoController.calcularTotal()}"/>
+                                </b:column> 
+
+
                             </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Forma de pago" for="Forma de pago"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:panelGrid size="" columns="2">
+                                        <b:radiobutton value="#{facturaController.idPago_FK}"
+                                                       itemLabel="Contado"
+                                                       itemValue="1"/>
+                                        <b:radiobutton value="#{facturaController.idPago_FK}"
+                                                       itemLabel="Tarjeta"
+                                                       itemValue="2"/>
+                                    </b:panelGrid>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="genero"/>
+                                </b:column>
+                            </b:row>
+
+                           
+
+
                             <row>
                                 <b:column medium-screen="2"/>
                                 <b:column span="2" offset="2">
                                     <b:commandButton value="Facturar"
-                                                     action="#"
+                                                     action="#{facturaController.inserta()}"
                                                      look="success"
                                                      style="width:90%" />
                                 </b:column>  

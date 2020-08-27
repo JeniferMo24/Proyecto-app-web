@@ -18,41 +18,28 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import model.Carrito;
 import model.CarritoProducto;
+import model.Facturar;
 import model.Producto;
 import model.ProductoVenta;
 
-@Named(value = "carritoController")
+@Named(value = "facturaController")
 @SessionScoped
-public class CarritoController extends Carrito implements Serializable {
+public class FacturaController extends Facturar implements Serializable {
 
-    public CarritoController() {
+    public FacturaController() {
     }
 
-    public String paginaCarrito() {
-        return "carrito.xhtml";
-    }
+    
 
-    public List<Carrito> getCarrito() {
-        return CarritoGestion.getCarrito();
-    }
-
-    public String elimina() {
-        if (CarritoGestion.eliminar(this)) {
-            return "carrito.xhtml";  
+    public String inserta() {
+        if (CarritoGestion.insertar(this)) {
+            return "mensajefactura.xhtml";  
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "No es posible eliminar");
             FacesContext.getCurrentInstance().addMessage(
                     "CarritoForm:nombre", mensaje);
-            return "carrito.xhtml";
+            return "MenuCliente.xhtml";
         }
     }
-    
-    public int calcularTotal(){
-       return CarritoGestion.total1;
-    }
-    
-    
-    
-    
 }

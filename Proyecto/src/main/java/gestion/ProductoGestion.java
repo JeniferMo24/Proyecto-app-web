@@ -15,7 +15,7 @@ public class ProductoGestion {
     private static final String SQL_INSERT_PRODUCTO
             = "insert into tbProducto(nombreProducto,descripcionProducto,precio,cantidad,idCategoria_FK,idProveedor_FK,idUsuario_FK) values (?,?,?,?,?,?,?)";
 
-    //Retorna true si logra insertar el proveedor, false si no lo logra
+  
     public static boolean insertar(Producto producto) {
         try {
             PreparedStatement sentencia
