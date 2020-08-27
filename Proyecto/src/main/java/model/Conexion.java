@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
     public class Conexion {
     private static Conexion conexion;
-    private static final String DBURL="jdbc:sqlserver://127.0.0.1:1433;databaseName=ProyectoProgra;user=Jenifer;password=jeni123;";
+    private static final String DBURL="jdbc:sqlserver://127.0.0.1:1433;databaseName=ProyectoProgra;user=Jenifer;password=Ad123456.;";
     private static Connection conn=null;
 
     private Conexion() {
