@@ -10,7 +10,7 @@ import model.Sugerencia;
 
 public class SugerenciaGestion {
     private static final String SQL_INSERT_SUGERENCIA=
-            "insert into tbSugerencia (asunto,descripcionSu,idUsuario_FK) values (?,?,?)";
+            "insert into tbSugerencia(asunto,descripcionSu,idUsuario_FK) values(?,?,?)";
     public static boolean insertar(Sugerencia sugerencia) {        
         try {
             PreparedStatement sentencia =            
@@ -25,4 +25,22 @@ public class SugerenciaGestion {
         }
         return false; 
     }
+    
+     private static final String SQL_INSERT_SUGERENCIA1=
+            "insert into tbSugerencia(asunto,descripcionSu,idUsuario_FK) values(?,?,?)";
+    public static boolean insertar1(Sugerencia sugerencia) {        
+        try {
+            PreparedStatement sentencia =            
+                    Conexion.getConexion().prepareStatement(SQL_INSERT_SUGERENCIA1);
+            sentencia.setString(1,sugerencia.getAsunto());
+            sentencia.setString(2,sugerencia.getDescripcionSu());
+            sentencia.setString(3,sugerencia.getIdUsuario_FK());
+            int fila=sentencia.executeUpdate();  
+            return fila>0; 
+        } catch (SQLException ex) {
+            Logger.getLogger(SugerenciaGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false; 
+    }
+    
 }
